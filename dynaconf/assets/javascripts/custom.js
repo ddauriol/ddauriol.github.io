@@ -4,7 +4,7 @@ const header_nav_ellipsis = document.querySelector('.md-header-nav__ellipsis')
 
 logo_top = `
         <span class="md-header-nav__topic md-ellipsis mt-5">
-            <img alt="DYNACONF" src="./_static/img/logo_white.svg" height="25"></img>
+            <img alt="LOGO" src="assets/images/logo_white.svg" height="25"></img>
         </span>`
 
 header_nav_ellipsis.innerHTML = logo_top
