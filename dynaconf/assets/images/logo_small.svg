@@ -1,0 +1,125 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="35" height="35" viewBox="0 0 35 35">
+  <defs>
+    <clipPath id="clip-logo_small">
+      <rect width="35" height="35"/>
+    </clipPath>
+  </defs>
+  <g id="logo_small" clip-path="url(#clip-logo_small)">
+    <g id="Group_1" data-name="Group 1" transform="translate(1 0.984)">
+      <line id="Line_1" data-name="Line 1" x2="6" y2="6" transform="translate(0 0.016)" stroke="#fff" stroke-width="0.5"/>
+      <line id="Line_2" data-name="Line 2" transform="translate(6 0.016)" stroke="#fff" stroke-width="0.5"/>
+      <line id="Line_3" data-name="Line 3" x2="2" y2="4" transform="translate(0 2.016)" stroke="#fff" stroke-width="0.5"/>
+      <line id="Line_4" data-name="Line 4" x2="4" y2="2" transform="translate(2 0.016)" stroke="#fff" stroke-width="0.5"/>
+      <line id="Line_5" data-name="Line 5" y2="6" transform="translate(0 0.016)" stroke="#fff" stroke-width="0.5"/>
+      <line id="Line_6" data-name="Line 6" x2="6" transform="translate(0 0.016)" stroke="#fff" stroke-width="0.5"/>
+      <line id="Line_7" data-name="Line 7" x2="6" y2="4" transform="translate(0 6.016)" stroke="#fff" stroke-width="0.5"/>
+      <line id="Line_8" data-name="Line 8" transform="translate(6 6.016)" stroke="#fff" stroke-width="0.5"/>
+      <line id="Line_9" data-name="Line 9" x2="2" y2="2" transform="translate(0 8.016)" stroke="#fff" stroke-width="0.5"/>
+      <line id="Line_10" data-name="Line 10" x2="4" y2="2" transform="translate(2 6.016)" stroke="#fff" stroke-width="0.5"/>
+      <line id="Line_11" data-name="Line 11" y2="4" transform="translate(6 6.016)" stroke="#fff" stroke-width="0.5"/>
+      <line id="Line_12" data-name="Line 12" y2="4" transform="translate(0 6.016)" stroke="#fff" stroke-width="0.5"/>
+      <line id="Line_13" data-name="Line 13" x2="6" y2="6" transform="translate(0 10.016)" stroke="#fff" stroke-width="0.5"/>
+      <line id="Line_14" data-name="Line 14" transform="translate(6 10.016)" stroke="#fff" stroke-width="0.5"/>
+      <line id="Line_15" data-name="Line 15" x2="2" y2="2" transform="translate(0 14.016)" stroke="#fff" stroke-width="0.5"/>
+      <line id="Line_16" data-name="Line 16" x2="4" y2="4" transform="translate(2 10.016)" stroke="#fff" stroke-width="0.5"/>
+      <line id="Line_17" data-name="Line 17" y2="6" transform="translate(6 10.016)" stroke="#fff" stroke-width="0.5"/>
+      <line id="Line_18" data-name="Line 18" y2="6" transform="translate(0 10.016)" stroke="#fff" stroke-width="0.5"/>
+      <line id="Line_19" data-name="Line 19" x2="6" y2="6" transform="translate(0 16.016)" stroke="#fff" stroke-width="0.5"/>
+      <line id="Line_20" data-name="Line 20" transform="translate(6 16.016)" stroke="#fff" stroke-width="0.5"/>
+      <line id="Line_21" data-name="Line 21" x2="2" y2="3" transform="translate(0 19.016)" stroke="#fff" stroke-width="0.5"/>
+      <line id="Line_22" data-name="Line 22" x2="4" y2="3" transform="translate(2 16.016)" stroke="#fff" stroke-width="0.5"/>
+      <line id="Line_23" data-name="Line 23" y2="6" transform="translate(6 16.016)" stroke="#fff" stroke-width="0.5"/>
+      <line id="Line_24" data-name="Line 24" y2="6" transform="translate(0 16.016)" stroke="#fff" stroke-width="0.5"/>
+      <line id="Line_25" data-name="Line 25" x2="6" y2="5" transform="translate(0 22.016)" stroke="#fff" stroke-width="0.5"/>
+      <line id="Line_26" data-name="Line 26" transform="translate(6 22.016)" stroke="#fff" stroke-width="0.5"/>
+      <line id="Line_27" data-name="Line 27" x2="2" y2="2" transform="translate(0 25.016)" stroke="#fff" stroke-width="0.5"/>
+      <line id="Line_28" data-name="Line 28" x2="4" y2="3" transform="translate(2 22.016)" stroke="#fff" stroke-width="0.5"/>
+      <line id="Line_29" data-name="Line 29" y2="5" transform="translate(6 22.016)" stroke="#fff" stroke-width="0.5"/>
+      <line id="Line_30" data-name="Line 30" y2="5" transform="translate(0 22.016)" stroke="#fff" stroke-width="0.5"/>
+      <line id="Line_31" data-name="Line 31" x2="6" y2="6" transform="translate(0 27.016)" stroke="#fff" stroke-width="0.5"/>
+      <line id="Line_32" data-name="Line 32" transform="translate(6 27.016)" stroke="#fff" stroke-width="0.5"/>
+      <line id="Line_33" data-name="Line 33" x2="2" y2="4" transform="translate(0 29.016)" stroke="#fff" stroke-width="0.5"/>
+      <line id="Line_34" data-name="Line 34" x2="4" y2="2" transform="translate(2 27.016)" stroke="#fff" stroke-width="0.5"/>
+      <line id="Line_35" data-name="Line 35" y2="6" transform="translate(0 27.016)" stroke="#fff" stroke-width="0.5"/>
+      <line id="Line_36" data-name="Line 36" x2="6" transform="translate(0 33.016)" stroke="#fff" stroke-width="0.5"/>
+      <line id="Line_37" data-name="Line 37" x2="4" y2="6" transform="translate(6 27.016)" stroke="#fff" stroke-width="0.5"/>
+      <line id="Line_38" data-name="Line 38" transform="translate(10 27.016)" stroke="#fff" stroke-width="0.5"/>
+      <line id="Line_39" data-name="Line 39" x2="2" y2="4" transform="translate(6 29.016)" stroke="#fff" stroke-width="0.5"/>
+      <line id="Line_40" data-name="Line 40" x2="2" y2="2" transform="translate(8 27.016)" stroke="#fff" stroke-width="0.5"/>
+      <line id="Line_41" data-name="Line 41" x2="4" transform="translate(6 33.016)" stroke="#fff" stroke-width="0.5"/>
+      <line id="Line_42" data-name="Line 42" x2="4" transform="translate(6 27.016)" stroke="#fff" stroke-width="0.5"/>
+      <line id="Line_43" data-name="Line 43" x2="7" y2="6" transform="translate(10 27.016)" stroke="#fff" stroke-width="0.5"/>
+      <line id="Line_44" data-name="Line 44" transform="translate(17 27.016)" stroke="#fff" stroke-width="0.5"/>
+      <line id="Line_45" data-name="Line 45" x2="4" y2="4" transform="translate(10 29.016)" stroke="#fff" stroke-width="0.5"/>
+      <line id="Line_46" data-name="Line 46" x2="3" y2="2" transform="translate(14 27.016)" stroke="#fff" stroke-width="0.5"/>
+      <line id="Line_47" data-name="Line 47" x2="7" transform="translate(10 33.016)" stroke="#fff" stroke-width="0.5"/>
+      <line id="Line_48" data-name="Line 48" x2="7" transform="translate(10 27.016)" stroke="#fff" stroke-width="0.5"/>
+      <line id="Line_49" data-name="Line 49" x2="5" y2="6" transform="translate(17 27.016)" stroke="#fff" stroke-width="0.5"/>
+      <line id="Line_50" data-name="Line 50" transform="translate(22 27.016)" stroke="#fff" stroke-width="0.5"/>
+      <line id="Line_51" data-name="Line 51" x2="2" y2="4" transform="translate(17 29.016)" stroke="#fff" stroke-width="0.5"/>
+      <line id="Line_52" data-name="Line 52" x2="3" y2="2" transform="translate(19 27.016)" stroke="#fff" stroke-width="0.5"/>
+      <line id="Line_53" data-name="Line 53" x2="5" transform="translate(17 33.016)" stroke="#fff" stroke-width="0.5"/>
+      <line id="Line_54" data-name="Line 54" x2="5" transform="translate(17 27.016)" stroke="#fff" stroke-width="0.5"/>
+      <line id="Line_55" data-name="Line 55" x2="5" y2="6" transform="translate(22 27.016)" stroke="#fff" stroke-width="0.5"/>
+      <line id="Line_56" data-name="Line 56" transform="translate(27 27.016)" stroke="#fff" stroke-width="0.5"/>
+      <line id="Line_57" data-name="Line 57" x2="3" y2="4" transform="translate(22 29.016)" stroke="#fff" stroke-width="0.5"/>
+      <line id="Line_58" data-name="Line 58" x2="2" y2="2" transform="translate(25 27.016)" stroke="#fff" stroke-width="0.5"/>
+      <line id="Line_59" data-name="Line 59" y2="6" transform="translate(27 27.016)" stroke="#fff" stroke-width="0.5"/>
+      <line id="Line_60" data-name="Line 60" x2="5" transform="translate(22 33.016)" stroke="#fff" stroke-width="0.5"/>
+      <line id="Line_61" data-name="Line 61" x2="5" transform="translate(22 27.016)" stroke="#fff" stroke-width="0.5"/>
+      <line id="Line_62" data-name="Line 62" x2="4" y2="6" transform="translate(6 0.016)" stroke="#fff" stroke-width="0.5"/>
+      <line id="Line_63" data-name="Line 63" transform="translate(10 0.016)" stroke="#fff" stroke-width="0.5"/>
+      <line id="Line_64" data-name="Line 64" x2="2" y2="4" transform="translate(6 2.016)" stroke="#fff" stroke-width="0.5"/>
+      <line id="Line_65" data-name="Line 65" x2="2" y2="2" transform="translate(8 0.016)" stroke="#fff" stroke-width="0.5"/>
+      <line id="Line_66" data-name="Line 66" x2="4" transform="translate(6 6.016)" stroke="#fff" stroke-width="0.5"/>
+      <line id="Line_67" data-name="Line 67" x2="4" transform="translate(6 0.016)" stroke="#fff" stroke-width="0.5"/>
+      <line id="Line_68" data-name="Line 68" x2="7" y2="6" transform="translate(10 0.016)" stroke="#fff" stroke-width="0.5"/>
+      <line id="Line_69" data-name="Line 69" transform="translate(17 0.016)" stroke="#fff" stroke-width="0.5"/>
+      <line id="Line_70" data-name="Line 70" x2="4" y2="4" transform="translate(10 2.016)" stroke="#fff" stroke-width="0.5"/>
+      <line id="Line_71" data-name="Line 71" x2="3" y2="2" transform="translate(14 0.016)" stroke="#fff" stroke-width="0.5"/>
+      <line id="Line_72" data-name="Line 72" x2="7" transform="translate(10 6.016)" stroke="#fff" stroke-width="0.5"/>
+      <line id="Line_73" data-name="Line 73" x2="7" transform="translate(10 0.016)" stroke="#fff" stroke-width="0.5"/>
+      <line id="Line_74" data-name="Line 74" x2="5" y2="6" transform="translate(17 0.016)" stroke="#fff" stroke-width="0.5"/>
+      <line id="Line_75" data-name="Line 75" transform="translate(22 0.016)" stroke="#fff" stroke-width="0.5"/>
+      <line id="Line_76" data-name="Line 76" x2="2" y2="4" transform="translate(17 2.016)" stroke="#fff" stroke-width="0.5"/>
+      <line id="Line_77" data-name="Line 77" x2="3" y2="2" transform="translate(19 0.016)" stroke="#fff" stroke-width="0.5"/>
+      <line id="Line_78" data-name="Line 78" x2="5" transform="translate(17 6.016)" stroke="#fff" stroke-width="0.5"/>
+      <line id="Line_79" data-name="Line 79" x2="5" transform="translate(17 0.016)" stroke="#fff" stroke-width="0.5"/>
+      <line id="Line_80" data-name="Line 80" x2="5" y2="6" transform="translate(22 0.016)" stroke="#fff" stroke-width="0.5"/>
+      <line id="Line_81" data-name="Line 81" transform="translate(27 0.016)" stroke="#fff" stroke-width="0.5"/>
+      <line id="Line_82" data-name="Line 82" x2="3" y2="4" transform="translate(22 2.016)" stroke="#fff" stroke-width="0.5"/>
+      <line id="Line_83" data-name="Line 83" x2="2" y2="2" transform="translate(25 0.016)" stroke="#fff" stroke-width="0.5"/>
+      <line id="Line_84" data-name="Line 84" y2="6" transform="translate(27 0.016)" stroke="#fff" stroke-width="0.5"/>
+      <line id="Line_85" data-name="Line 85" x2="5" transform="translate(22 6.016)" stroke="#fff" stroke-width="0.5"/>
+      <line id="Line_86" data-name="Line 86" x2="5" transform="translate(22 0.016)" stroke="#fff" stroke-width="0.5"/>
+    </g>
+    <g id="Group_5" data-name="Group 5" transform="translate(27.825 7.175)">
+      <line id="Line_305" data-name="Line 305" x2="6" y2="4" transform="translate(0.175 -0.175)" stroke="#fff" stroke-width="0.5"/>
+      <line id="Line_306" data-name="Line 306" transform="translate(6.175 -0.175)" stroke="#fff" stroke-width="0.5"/>
+      <line id="Line_307" data-name="Line 307" x2="2" y2="2" transform="translate(0.175 1.825)" stroke="#fff" stroke-width="0.5"/>
+      <line id="Line_308" data-name="Line 308" x2="4" y2="2" transform="translate(2.175 -0.175)" stroke="#fff" stroke-width="0.5"/>
+      <line id="Line_309" data-name="Line 309" y2="4" transform="translate(6.175 -0.175)" stroke="#fff" stroke-width="0.5"/>
+      <line id="Line_310" data-name="Line 310" y2="4" transform="translate(0.175 -0.175)" stroke="#fff" stroke-width="0.5"/>
+      <line id="Line_311" data-name="Line 311" x2="6" transform="translate(0.175 -0.175)" stroke="#fff" stroke-width="0.5"/>
+      <line id="Line_312" data-name="Line 312" x2="6" y2="6" transform="translate(0.175 3.825)" stroke="#fff" stroke-width="0.5"/>
+      <line id="Line_313" data-name="Line 313" transform="translate(6.175 3.825)" stroke="#fff" stroke-width="0.5"/>
+      <line id="Line_314" data-name="Line 314" x2="2" y2="2" transform="translate(0.175 7.825)" stroke="#fff" stroke-width="0.5"/>
+      <line id="Line_315" data-name="Line 315" x2="4" y2="4" transform="translate(2.175 3.825)" stroke="#fff" stroke-width="0.5"/>
+      <line id="Line_316" data-name="Line 316" y2="6" transform="translate(6.175 3.825)" stroke="#fff" stroke-width="0.5"/>
+      <line id="Line_317" data-name="Line 317" y2="6" transform="translate(0.175 3.825)" stroke="#fff" stroke-width="0.5"/>
+      <line id="Line_318" data-name="Line 318" x2="6" y2="6" transform="translate(0.175 9.825)" stroke="#fff" stroke-width="0.5"/>
+      <line id="Line_319" data-name="Line 319" transform="translate(6.175 9.825)" stroke="#fff" stroke-width="0.5"/>
+      <line id="Line_320" data-name="Line 320" x2="2" y2="3" transform="translate(0.175 12.825)" stroke="#fff" stroke-width="0.5"/>
+      <line id="Line_321" data-name="Line 321" x2="4" y2="3" transform="translate(2.175 9.825)" stroke="#fff" stroke-width="0.5"/>
+      <line id="Line_322" data-name="Line 322" y2="6" transform="translate(6.175 9.825)" stroke="#fff" stroke-width="0.5"/>
+      <line id="Line_323" data-name="Line 323" y2="6" transform="translate(0.175 9.825)" stroke="#fff" stroke-width="0.5"/>
+      <line id="Line_324" data-name="Line 324" x2="6" y2="5" transform="translate(0.175 15.825)" stroke="#fff" stroke-width="0.5"/>
+      <line id="Line_325" data-name="Line 325" transform="translate(6.175 15.825)" stroke="#fff" stroke-width="0.5"/>
+      <line id="Line_326" data-name="Line 326" x2="2" y2="2" transform="translate(0.175 18.825)" stroke="#fff" stroke-width="0.5"/>
+      <line id="Line_327" data-name="Line 327" x2="4" y2="3" transform="translate(2.175 15.825)" stroke="#fff" stroke-width="0.5"/>
+      <line id="Line_328" data-name="Line 328" y2="5" transform="translate(6.175 15.825)" stroke="#fff" stroke-width="0.5"/>
+      <line id="Line_329" data-name="Line 329" y2="5" transform="translate(0.175 15.825)" stroke="#fff" stroke-width="0.5"/>
+      <line id="Line_330" data-name="Line 330" x2="6" transform="translate(0.175 20.825)" stroke="#fff" stroke-width="0.5"/>
+    </g>
+  </g>
+</svg>
