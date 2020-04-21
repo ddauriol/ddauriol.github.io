@@ -1,0 +1,65 @@
+a.external-link::after {
+    /* \00A0 is a non-breaking space
+        to make the mark be on the same line as the link
+    */
+    content: "\00A0[↪]";
+}
+
+a.internal-link::after {
+    /* \00A0 is a non-breaking space
+        to make the mark be on the same line as the link
+    */
+    content: "\00A0↪";
+}
+
+.mt-5 {
+    margin-top: 5px;
+}
+
+.md-footer-colors {
+    align-items: flex-start;
+    align-content: flex-start;
+    margin: auto .6rem;
+    padding: .4rem 0;
+    color:var(--md-default-bg-color--light)
+}
+
+.btn_colors {
+    display: inline-block;
+    position: relative;
+    height: 15px;
+    width: 15px;
+    cursor: pointer;
+    padding: 1px;
+}
+
+.btn_color_indigo {
+    background-color: hsla(231deg, 48%, 48%, 1);
+}
+
+.btn_color_teal {
+    background-color: hsla(174deg, 100%, 29%, 1);
+}
+
+.btn_color_amber {
+    background-color: hsla(45deg, 100%, 51%, 1);
+}
+
+.btn_color_deep-purple {
+    background-color: hsla(262deg, 47%, 55%, 1);
+}
+
+.btn_color_grey {
+    background-color: hsla(199deg, 18%, 40%, 1);
+}
+
+.btn_color_brown {
+    background-color: hsla(16deg, 25%, 38%, 1);
+}
+
+
+@media (min-width: 768px) {
+    .md-header-nav__button {
+        display: none;
+    }
+}

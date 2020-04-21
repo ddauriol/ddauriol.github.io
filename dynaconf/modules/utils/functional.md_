@@ -1,0 +1,3 @@
+::: dynaconf.utils.functional
+    rendering:
+        show_source: true
