@@ -1,6 +1,902 @@
+
 <!DOCTYPE html>
-<html class="no-js" lang="en"> <head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><meta content="DYNACONF a layered configuration system for Python applications" name="description"/><link href="https://github.com/rochacbruno/dynaconf/guides/usage/" rel="canonical"/><meta content="https://github.com/rochacbruno/dynaconf" name="author"/><link href="../../assets/images/favicon.png" rel="shortcut icon"/><meta content="mkdocs-1.1, mkdocs-material-5.1.1" name="generator"/><title>Getting started - DYNACONF</title><link href="../../assets/stylesheets/main.75004596.min.css" rel="stylesheet"/><link href="../../assets/stylesheets/palette.a4b61a0c.min.css" rel="stylesheet"/><meta content="#009688" name="theme-color"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&amp;display=fallback" rel="stylesheet"/><style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style><link href="../../assets/stylesheets/custom.css" rel="stylesheet"/><link href="../../assets/stylesheets/termynal.css" rel="stylesheet"/></head> <body data-md-color-accent="amber" data-md-color-primary="teal" dir="ltr" onload="get_theme_color()"> <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/> <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/> <label class="md-overlay" for="__drawer"></label> <div data-md-component="skip"> <a class="md-skip" href="#getting-started"> Skip to content </a> </div> <div data-md-component="announce"> </div> <header class="md-header" data-md-component="header"> <nav aria-label="Header" class="md-header-nav md-grid"> <a aria-label="DYNACONF" class="md-header-nav__button md-logo" href="https://github.com/rochacbruno/dynaconf" title="DYNACONF"> <img alt="logo" src="../../assets/images/logo_small.svg"/> </a> <label class="md-header-nav__button md-icon" for="__drawer"> <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z"></path></svg> </label> <div class="md-header-nav__title" data-md-component="header-title"> <div class="md-header-nav__ellipsis"> <span class="md-header-nav__topic md-ellipsis mt-5"> <img alt="DYNACONF" height="25" src="../../assets/images/logo_white.svg"/> </span> <span class="md-header-nav__topic md-ellipsis"> Getting started </span> </div> </div> <label class="md-header-nav__button md-icon" for="__search"> <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z"></path></svg> </label> <div class="md-search" data-md-component="search" role="dialog"> <label class="md-search__overlay" for="__search"></label> <div class="md-search__inner" role="search"> <form class="md-search__form" name="search"> <input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" data-md-state="active" name="query" placeholder="Search" spellcheck="false" type="text"/> <label class="md-search__icon md-icon" for="__search"> <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z"></path></svg> <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"></path></svg> </label> <button aria-label="Clear" class="md-search__icon md-icon" data-md-component="search-reset" tabindex="-1" type="reset"> <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"></path></svg> </button> </form> <div class="md-search__output"> <div class="md-search__scrollwrap" data-md-scrollfix=""> <div class="md-search-result" data-md-component="search-result"> <div class="md-search-result__meta"> Type to start searching </div> <ol class="md-search-result__list"></ol> </div> </div> </div> </div> </div> <div class="md-header-nav__source"> <a class="md-source" href="https://github.com/rochacbruno/dynaconf" title="Go to repository"> <div class="md-source__icon md-icon"> <svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg> </div> <div class="md-source__repository"> rochacbruno/dynaconf </div> </a> </div> </nav> </header> <div class="md-container" data-md-component="container"> <main class="md-main" data-md-component="main"> <div class="md-main__inner md-grid"> <div class="md-sidebar md-sidebar--primary" data-md-component="navigation"> <div class="md-sidebar__scrollwrap"> <div class="md-sidebar__inner"> <nav aria-label="Navigation" class="md-nav md-nav--primary" data-md-level="0"> <label class="md-nav__title" for="__drawer"> <a aria-label="DYNACONF" class="md-nav__button md-logo" href="https://github.com/rochacbruno/dynaconf" title="DYNACONF"> <img alt="logo" src="../../assets/images/logo_small.svg"/> </a> DYNACONF </label> <div class="md-nav__source"> <a class="md-source" href="https://github.com/rochacbruno/dynaconf" title="Go to repository"> <div class="md-source__icon md-icon"> <svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg> </div> <div class="md-source__repository"> rochacbruno/dynaconf </div> </a> </div> <ul class="md-nav__list" data-md-scrollfix=""> <li class="md-nav__item"> <a class="md-nav__link" href="../.." title="Home"> Home </a> </li> <li class="md-nav__item md-nav__item--active"> <input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/> <label class="md-nav__link md-nav__link--active" for="__toc"> Getting started <span class="md-nav__icon md-icon"> <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3,9H17V7H3V9M3,13H17V11H3V13M3,17H17V15H3V17M19,17H21V15H19V17M19,7V9H21V7H19M19,13H21V11H19V13Z"></path></svg> </span> </label> <a class="md-nav__link md-nav__link--active" href="./" title="Getting started"> Getting started </a> <nav aria-label="Table of contents" class="md-nav md-nav--secondary"> <label class="md-nav__title" for="__toc"> <span class="md-nav__icon md-icon"> <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"></path></svg> </span> Table of contents </label> <ul class="md-nav__list" data-md-scrollfix=""> <li class="md-nav__item"> <a class="md-nav__link" href="#installation"> Installation </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="#usage"> Usage </a> <nav aria-label="Usage" class="md-nav"> <ul class="md-nav__list"> <li class="md-nav__item"> <a class="md-nav__link" href="#accessing-config-variables-in-your-python-application"> Accessing config variables in your Python application </a> <nav aria-label="Accessing config variables in your Python application" class="md-nav"> <ul class="md-nav__list"> <li class="md-nav__item"> <a class="md-nav__link" href="#example-of-program-to-connect-to-some-database"> Example of program to connect to some database </a> </li> </ul> </nav> </li> <li class="md-nav__item"> <a class="md-nav__link" href="#understanding-the-settings"> Understanding the settings </a> </li> </ul> </nav> </li> <li class="md-nav__item"> <a class="md-nav__link" href="#working-environments"> Working environments </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="#the-settings-files"> The settings files </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="#settings-files-location"> Settings files location </a> <nav aria-label="Settings files location" class="md-nav"> <ul class="md-nav__list"> <li class="md-nav__item"> <a class="md-nav__link" href="#illustrative-example"> Illustrative Example </a> </li> </ul> </nav> </li> <li class="md-nav__item"> <a class="md-nav__link" href="#loading-order"> Loading order </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="#local-configuration-files-and-merging-to-existing-data"> Local configuration files and merging to existing data </a> <nav aria-label="Local configuration files and merging to existing data" class="md-nav"> <ul class="md-nav__list"> <li class="md-nav__item"> <a class="md-nav__link" href="#mark-the-local-file-to-be-entirely-merged"> Mark the local file to be entirely merged </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="#dynaconf-merge-token"> dynaconf merge token </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="#dunder-merging-for-nested-structures"> Dunder merging for nested structures </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="#global-merge"> Global merge </a> </li> </ul> </nav> </li> <li class="md-nav__item"> <a class="md-nav__link" href="#settings-file-formats"> Settings File Formats </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="#supported-file-formats"> Supported file formats </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="#additional-secrets-file-for-ci-jenkins-etc"> Additional secrets file (for CI, jenkins etc.) </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="#including-files-inside-files"> Including files inside files </a> <nav aria-label="Including files inside files" class="md-nav"> <ul class="md-nav__list"> <li class="md-nav__item"> <a class="md-nav__link" href="#including-via-environment-variable"> Including via environment variable </a> </li> </ul> </nav> </li> <li class="md-nav__item"> <a class="md-nav__link" href="#programmatically-loading-a-settings-file"> Programmatically loading a settings file </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="#template-substitutions"> Template substitutions </a> <nav aria-label="Template substitutions" class="md-nav"> <ul class="md-nav__list"> <li class="md-nav__item"> <a class="md-nav__link" href="#format-token"> @format token </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="#jinja-token"> @jinja token </a> </li> </ul> </nav> </li> <li class="md-nav__item"> <a class="md-nav__link" href="#merging-existing-data-structures"> Merging existing data structures </a> <nav aria-label="Merging existing data structures" class="md-nav"> <ul class="md-nav__list"> <li class="md-nav__item"> <a class="md-nav__link" href="#avoiding-duplications-on-lists"> Avoiding duplications on lists </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="#known-caveats"> Known caveats </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="#global-merge_1"> Global merge </a> </li> </ul> </nav> </li> <li class="md-nav__item"> <a class="md-nav__link" href="#more-examples"> More examples </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" id="nav-3" type="checkbox"/> <label class="md-nav__link" for="nav-3"> Usage <span class="md-nav__icon md-icon"> <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"></path></svg> </span> </label> <nav aria-label="Usage" class="md-nav" data-md-level="1"> <label class="md-nav__title" for="nav-3"> <span class="md-nav__icon md-icon"> <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"></path></svg> </span> Usage </label> <ul class="md-nav__list" data-md-scrollfix=""> <li class="md-nav__item"> <a class="md-nav__link" href="../sensitive_secrets/" title="Sensitive secrets"> Sensitive secrets </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="../environment_variables/" title="Environment variables"> Environment variables </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="../accessing_values/" title="Accessing parameters"> Accessing parameters </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="../cli/" title="The dynaconf CLI"> The dynaconf CLI </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="../external_storages/" title="External storages"> External storages </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="../configuration/" title="Configuring Dynacon"> Configuring Dynacon </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="../advanced_usage/" title="Advanced Usage"> Advanced Usage </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="../feature_flag/" title="Feature flag system"> Feature flag system </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="../validation/" title="Validation"> Validation </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" id="nav-4" type="checkbox"/> <label class="md-nav__link" for="nav-4"> Extension <span class="md-nav__icon md-icon"> <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"></path></svg> </span> </label> <nav aria-label="Extension" class="md-nav" data-md-level="1"> <label class="md-nav__title" for="nav-4"> <span class="md-nav__icon md-icon"> <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"></path></svg> </span> Extension </label> <ul class="md-nav__list" data-md-scrollfix=""> <li class="md-nav__item"> <a class="md-nav__link" href="../flask/" title="Flask"> Flask </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="../django/" title="Django"> Django </a> </li> </ul> </nav> </li> <li class="md-nav__item"> <a class="md-nav__link" href="../testing/" title="Testing"> Testing </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="../extend/" title="Extending"> Extending </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="../examples/" title="Examples"> Examples </a> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8" id="nav-8" type="checkbox"/> <label class="md-nav__link" for="nav-8"> About <span class="md-nav__icon md-icon"> <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"></path></svg> </span> </label> <nav aria-label="About" class="md-nav" data-md-level="1"> <label class="md-nav__title" for="nav-8"> <span class="md-nav__icon md-icon"> <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"></path></svg> </span> About </label> <ul class="md-nav__list" data-md-scrollfix=""> <li class="md-nav__item"> <a class="md-nav__link" href="../contribute/" title="How to contribute"> How to contribute </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="../credits/" title="Credits"> Credits </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="../alternatives/" title="Alternatives"> Alternatives </a> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8-4" id="nav-8-4" type="checkbox"/> <label class="md-nav__link" for="nav-8-4"> Module reference <span class="md-nav__icon md-icon"> <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"></path></svg> </span> </label> <nav aria-label="Module reference" class="md-nav" data-md-level="2"> <label class="md-nav__title" for="nav-8-4"> <span class="md-nav__icon md-icon"> <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"></path></svg> </span> Module reference </label> <ul class="md-nav__list" data-md-scrollfix=""> <li class="md-nav__item"> <a class="md-nav__link" href="../modules/" title="Guide"> Guide </a> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8-4-2" id="nav-8-4-2" type="checkbox"/> <label class="md-nav__link" for="nav-8-4-2"> Submodules <span class="md-nav__icon md-icon"> <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"></path></svg> </span> </label> <nav aria-label="Submodules" class="md-nav" data-md-level="3"> <label class="md-nav__title" for="nav-8-4-2"> <span class="md-nav__icon md-icon"> <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"></path></svg> </span> Submodules </label> <ul class="md-nav__list" data-md-scrollfix=""> <li class="md-nav__item"> <a class="md-nav__link" href="../../modules/base/" title="Base"> Base </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="../../modules/cli/" title="CLI"> CLI </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="../../modules/default_settings/" title="Default Settings"> Default Settings </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="../../modules/constants/" title="Constants"> Constants </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="../../modules/test_settings/" title="Test Settings"> Test Settings </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="../../modules/validator/" title="Validator"> Validator </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="../../modules/validator_conditions/" title="Validator Conditions"> Validator Conditions </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8-4-3" id="nav-8-4-3" type="checkbox"/> <label class="md-nav__link" for="nav-8-4-3"> Subpackages <span class="md-nav__icon md-icon"> <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"></path></svg> </span> </label> <nav aria-label="Subpackages" class="md-nav" data-md-level="3"> <label class="md-nav__title" for="nav-8-4-3"> <span class="md-nav__icon md-icon"> <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"></path></svg> </span> Subpackages </label> <ul class="md-nav__list" data-md-scrollfix=""> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8-4-3-1" id="nav-8-4-3-1" type="checkbox"/> <label class="md-nav__link" for="nav-8-4-3-1"> Contrib Package <span class="md-nav__icon md-icon"> <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"></path></svg> </span> </label> <nav aria-label="Contrib Package" class="md-nav" data-md-level="4"> <label class="md-nav__title" for="nav-8-4-3-1"> <span class="md-nav__icon md-icon"> <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"></path></svg> </span> Contrib Package </label> <ul class="md-nav__list" data-md-scrollfix=""> <li class="md-nav__item"> <a class="md-nav__link" href="../../modules/contrib/flask_dynaconf/" title="Flask dynaconf"> Flask dynaconf </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8-4-3-2" id="nav-8-4-3-2" type="checkbox"/> <label class="md-nav__link" for="nav-8-4-3-2"> Loaders <span class="md-nav__icon md-icon"> <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"></path></svg> </span> </label> <nav aria-label="Loaders" class="md-nav" data-md-level="4"> <label class="md-nav__title" for="nav-8-4-3-2"> <span class="md-nav__icon md-icon"> <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"></path></svg> </span> Loaders </label> <ul class="md-nav__list" data-md-scrollfix=""> <li class="md-nav__item"> <a class="md-nav__link" href="../../modules/loaders/base/" title="Base"> Base </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="../../modules/loaders/env_loader/" title="env"> env </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="../../modules/loaders/ini_loader/" title="ini"> ini </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="../../modules/loaders/json_loader/" title="json"> json </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="../../modules/loaders/py_loader/" title="py"> py </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="../../modules/loaders/redis_loader/" title="redis"> redis </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="../../modules/loaders/toml_loader/" title="toml"> toml </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="../../modules/loaders/vault_loader/" title="vault"> vault </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="../../modules/loaders/yaml_loader/" title="yaml"> yaml </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8-4-3-3" id="nav-8-4-3-3" type="checkbox"/> <label class="md-nav__link" for="nav-8-4-3-3"> Utils <span class="md-nav__icon md-icon"> <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"></path></svg> </span> </label> <nav aria-label="Utils" class="md-nav" data-md-level="4"> <label class="md-nav__title" for="nav-8-4-3-3"> <span class="md-nav__icon md-icon"> <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"></path></svg> </span> Utils </label> <ul class="md-nav__list" data-md-scrollfix=""> <li class="md-nav__item"> <a class="md-nav__link" href="../../modules/utils/boxing/" title="Boxing"> Boxing </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="../../modules/utils/parse_conf/" title="Parse Config"> Parse Config </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="../../modules/utils/files/" title="Files"> Files </a> </li> </ul> </nav> </li> </ul> </nav> </li> </ul> </nav> </li> <li class="md-nav__item"> <a class="md-nav__link" href="../../license/" title="License"> License </a> </li> </ul> </nav> </li> </ul> </nav> </div> </div> </div> <div class="md-sidebar md-sidebar--secondary" data-md-component="toc"> <div class="md-sidebar__scrollwrap"> <div class="md-sidebar__inner"> <nav aria-label="Table of contents" class="md-nav md-nav--secondary"> <label class="md-nav__title" for="__toc"> <span class="md-nav__icon md-icon"> <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"></path></svg> </span> Table of contents </label> <ul class="md-nav__list" data-md-scrollfix=""> <li class="md-nav__item"> <a class="md-nav__link" href="#installation"> Installation </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="#usage"> Usage </a> <nav aria-label="Usage" class="md-nav"> <ul class="md-nav__list"> <li class="md-nav__item"> <a class="md-nav__link" href="#accessing-config-variables-in-your-python-application"> Accessing config variables in your Python application </a> <nav aria-label="Accessing config variables in your Python application" class="md-nav"> <ul class="md-nav__list"> <li class="md-nav__item"> <a class="md-nav__link" href="#example-of-program-to-connect-to-some-database"> Example of program to connect to some database </a> </li> </ul> </nav> </li> <li class="md-nav__item"> <a class="md-nav__link" href="#understanding-the-settings"> Understanding the settings </a> </li> </ul> </nav> </li> <li class="md-nav__item"> <a class="md-nav__link" href="#working-environments"> Working environments </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="#the-settings-files"> The settings files </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="#settings-files-location"> Settings files location </a> <nav aria-label="Settings files location" class="md-nav"> <ul class="md-nav__list"> <li class="md-nav__item"> <a class="md-nav__link" href="#illustrative-example"> Illustrative Example </a> </li> </ul> </nav> </li> <li class="md-nav__item"> <a class="md-nav__link" href="#loading-order"> Loading order </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="#local-configuration-files-and-merging-to-existing-data"> Local configuration files and merging to existing data </a> <nav aria-label="Local configuration files and merging to existing data" class="md-nav"> <ul class="md-nav__list"> <li class="md-nav__item"> <a class="md-nav__link" href="#mark-the-local-file-to-be-entirely-merged"> Mark the local file to be entirely merged </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="#dynaconf-merge-token"> dynaconf merge token </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="#dunder-merging-for-nested-structures"> Dunder merging for nested structures </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="#global-merge"> Global merge </a> </li> </ul> </nav> </li> <li class="md-nav__item"> <a class="md-nav__link" href="#settings-file-formats"> Settings File Formats </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="#supported-file-formats"> Supported file formats </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="#additional-secrets-file-for-ci-jenkins-etc"> Additional secrets file (for CI, jenkins etc.) </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="#including-files-inside-files"> Including files inside files </a> <nav aria-label="Including files inside files" class="md-nav"> <ul class="md-nav__list"> <li class="md-nav__item"> <a class="md-nav__link" href="#including-via-environment-variable"> Including via environment variable </a> </li> </ul> </nav> </li> <li class="md-nav__item"> <a class="md-nav__link" href="#programmatically-loading-a-settings-file"> Programmatically loading a settings file </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="#template-substitutions"> Template substitutions </a> <nav aria-label="Template substitutions" class="md-nav"> <ul class="md-nav__list"> <li class="md-nav__item"> <a class="md-nav__link" href="#format-token"> @format token </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="#jinja-token"> @jinja token </a> </li> </ul> </nav> </li> <li class="md-nav__item"> <a class="md-nav__link" href="#merging-existing-data-structures"> Merging existing data structures </a> <nav aria-label="Merging existing data structures" class="md-nav"> <ul class="md-nav__list"> <li class="md-nav__item"> <a class="md-nav__link" href="#avoiding-duplications-on-lists"> Avoiding duplications on lists </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="#known-caveats"> Known caveats </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="#global-merge_1"> Global merge </a> </li> </ul> </nav> </li> <li class="md-nav__item"> <a class="md-nav__link" href="#more-examples"> More examples </a> </li> </ul> </nav> </div> </div> </div> <div class="md-content"> <article class="md-content__inner md-typeset"> <h1 id="getting-started">Getting Started</h1> <h2 id="installation">Installation</h2> <blockquote> <p>Python 3.x is required</p> </blockquote> <pre><code>$ pip install dynaconf
-</code></pre> <blockquote> <p>Default installation supports .toml, .py and .json file formats and also environment variables (.env supported) - to support YAML add <code>pip install dynaconf[yaml]</code> or <code>pip install dynaconf[all]</code></p> </blockquote> <h2 id="usage">Usage</h2> <h3 id="accessing-config-variables-in-your-python-application">Accessing config variables in your Python application</h3> <p>In your Python program wherever you need to access a settings variable you use the canonical object <code>from dynaconf import settings</code>:</p> <h4 id="example-of-program-to-connect-to-some-database">Example of program to connect to some database</h4> <pre><code class="python">from some.db import Client
+
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="DYNACONF a layered configuration system for Python applications" name="description"/>
+<link href="https://github.com/rochacbruno/dynaconf/guides/usage/" rel="canonical"/>
+<meta content="https://github.com/rochacbruno/dynaconf" name="author"/>
+<link href="../../assets/images/favicon.png" rel="shortcut icon"/>
+<meta content="mkdocs-1.1, mkdocs-material-5.1.1" name="generator"/>
+<title>Getting started - DYNACONF</title>
+<link href="../../assets/stylesheets/main.75004596.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.a4b61a0c.min.css" rel="stylesheet"/>
+<meta content="" name="theme-color"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&amp;display=fallback" rel="stylesheet"/>
+<style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+<link href="../../assets/stylesheets/custom.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/termynal.css" rel="stylesheet"/>
+</head>
+<body data-md-color-accent="purple-dark" data-md-color-primary="purple-dark" dir="ltr" onload="get_theme_color()">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#getting-started">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="Header" class="md-header-nav md-grid">
+<a aria-label="DYNACONF" class="md-header-nav__button md-logo" href="https://github.com/rochacbruno/dynaconf" title="DYNACONF">
+<img alt="logo" src="../../assets/images/logo_small.svg"/>
+</a>
+<label class="md-header-nav__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z"></path></svg>
+</label>
+<div class="md-header-nav__title" data-md-component="header-title">
+<div class="md-header-nav__ellipsis">
+<span class="md-header-nav__topic md-ellipsis mt-5">
+<img alt="DYNACONF" height="25" src="../../assets/images/logo_white.svg"/>
+</span>
+<span class="md-header-nav__topic md-ellipsis">
+            
+              Getting started
+            
+          </span>
+</div>
+</div>
+<label class="md-header-nav__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" data-md-state="active" name="query" placeholder="Search" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"></path></svg>
+</label>
+<button aria-label="Clear" class="md-search__icon md-icon" data-md-component="search-reset" tabindex="-1" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"></path></svg>
+</button>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Type to start searching
+          </div>
+<ol class="md-search-result__list"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="md-header-nav__source">
+<a class="md-source" href="https://github.com/rochacbruno/dynaconf" title="Go to repository">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
+</div>
+<div class="md-source__repository">
+    rochacbruno/dynaconf
+  </div>
+</a>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="DYNACONF" class="md-nav__button md-logo" href="https://github.com/rochacbruno/dynaconf" title="DYNACONF">
+<img alt="logo" src="../../assets/images/logo_small.svg"/>
+</a>
+    DYNACONF
+  </label>
+<div class="md-nav__source">
+<a class="md-source" href="https://github.com/rochacbruno/dynaconf" title="Go to repository">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
+</div>
+<div class="md-source__repository">
+    rochacbruno/dynaconf
+  </div>
+</a>
+</div>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../.." title="Home">
+      Home
+    </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../more/" title="More">
+      More
+    </a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+        Getting started
+        <span class="md-nav__icon md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3,9H17V7H3V9M3,13H17V11H3V13M3,17H17V15H3V17M19,17H21V15H19V17M19,7V9H21V7H19M19,13H21V11H19V13Z"></path></svg>
+</span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./" title="Getting started">
+      Getting started
+    </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"></path></svg>
+</span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#installation">
+    Installation
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#usage">
+    Usage
+  </a>
+<nav aria-label="Usage" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#accessing-config-variables-in-your-python-application">
+    Accessing config variables in your Python application
+  </a>
+<nav aria-label="Accessing config variables in your Python application" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example-of-program-to-connect-to-some-database">
+    Example of program to connect to some database
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#understanding-the-settings">
+    Understanding the settings
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#working-environments">
+    Working environments
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#the-settings-files">
+    The settings files
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#settings-files-location">
+    Settings files location
+  </a>
+<nav aria-label="Settings files location" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#illustrative-example">
+    Illustrative Example
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#loading-order">
+    Loading order
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#local-configuration-files-and-merging-to-existing-data">
+    Local configuration files and merging to existing data
+  </a>
+<nav aria-label="Local configuration files and merging to existing data" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#mark-the-local-file-to-be-entirely-merged">
+    Mark the local file to be entirely merged
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#dynaconf-merge-token">
+    dynaconf merge token
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#dunder-merging-for-nested-structures">
+    Dunder merging for nested structures
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#global-merge">
+    Global merge
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#settings-file-formats">
+    Settings File Formats
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#supported-file-formats">
+    Supported file formats
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#additional-secrets-file-for-ci-jenkins-etc">
+    Additional secrets file (for CI, jenkins etc.)
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#including-files-inside-files">
+    Including files inside files
+  </a>
+<nav aria-label="Including files inside files" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#including-via-environment-variable">
+    Including via environment variable
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#programmatically-loading-a-settings-file">
+    Programmatically loading a settings file
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#template-substitutions">
+    Template substitutions
+  </a>
+<nav aria-label="Template substitutions" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#format-token">
+    @format token
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#jinja-token">
+    @jinja token
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#merging-existing-data-structures">
+    Merging existing data structures
+  </a>
+<nav aria-label="Merging existing data structures" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#avoiding-duplications-on-lists">
+    Avoiding duplications on lists
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#known-caveats">
+    Known caveats
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#global-merge_1">
+    Global merge
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#more-examples">
+    More examples
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" id="nav-4" type="checkbox"/>
+<label class="md-nav__link" for="nav-4">
+      Usage
+      <span class="md-nav__icon md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"></path></svg>
+</span>
+</label>
+<nav aria-label="Usage" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="nav-4">
+<span class="md-nav__icon md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"></path></svg>
+</span>
+        Usage
+      </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../sensitive_secrets/" title="Sensitive secrets">
+      Sensitive secrets
+    </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../environment_variables/" title="Environment variables">
+      Environment variables
+    </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../accessing_values/" title="Accessing parameters">
+      Accessing parameters
+    </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../cli/" title="The dynaconf CLI">
+      The dynaconf CLI
+    </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../external_storages/" title="External storages">
+      External storages
+    </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../configuration/" title="Configuring Dynacon">
+      Configuring Dynacon
+    </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../advanced_usage/" title="Advanced Usage">
+      Advanced Usage
+    </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../feature_flag/" title="Feature flag system">
+      Feature flag system
+    </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../validation/" title="Validation">
+      Validation
+    </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" id="nav-5" type="checkbox"/>
+<label class="md-nav__link" for="nav-5">
+      Extension
+      <span class="md-nav__icon md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"></path></svg>
+</span>
+</label>
+<nav aria-label="Extension" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="nav-5">
+<span class="md-nav__icon md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"></path></svg>
+</span>
+        Extension
+      </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../flask/" title="Flask">
+      Flask
+    </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../django/" title="Django">
+      Django
+    </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../testing/" title="Testing">
+      Testing
+    </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../extend/" title="Extending">
+      Extending
+    </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../examples/" title="Examples">
+      Examples
+    </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="nav-9" id="nav-9" type="checkbox"/>
+<label class="md-nav__link" for="nav-9">
+      About
+      <span class="md-nav__icon md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"></path></svg>
+</span>
+</label>
+<nav aria-label="About" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="nav-9">
+<span class="md-nav__icon md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"></path></svg>
+</span>
+        About
+      </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../contribute/" title="How to contribute">
+      How to contribute
+    </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../credits/" title="Credits">
+      Credits
+    </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../alternatives/" title="Alternatives">
+      Alternatives
+    </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="nav-9-4" id="nav-9-4" type="checkbox"/>
+<label class="md-nav__link" for="nav-9-4">
+      Module reference
+      <span class="md-nav__icon md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"></path></svg>
+</span>
+</label>
+<nav aria-label="Module reference" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="nav-9-4">
+<span class="md-nav__icon md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"></path></svg>
+</span>
+        Module reference
+      </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../modules/modules/" title="Guide">
+      Guide
+    </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="nav-9-4-2" id="nav-9-4-2" type="checkbox"/>
+<label class="md-nav__link" for="nav-9-4-2">
+      Submodules
+      <span class="md-nav__icon md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"></path></svg>
+</span>
+</label>
+<nav aria-label="Submodules" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="nav-9-4-2">
+<span class="md-nav__icon md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"></path></svg>
+</span>
+        Submodules
+      </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../modules/base/" title="Base">
+      Base
+    </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../modules/cli/" title="CLI">
+      CLI
+    </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../modules/default_settings/" title="Default Settings">
+      Default Settings
+    </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../modules/constants/" title="Constants">
+      Constants
+    </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../modules/test_settings/" title="Test Settings">
+      Test Settings
+    </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../modules/validator/" title="Validator">
+      Validator
+    </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../modules/validator_conditions/" title="Validator Conditions">
+      Validator Conditions
+    </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="nav-9-4-3" id="nav-9-4-3" type="checkbox"/>
+<label class="md-nav__link" for="nav-9-4-3">
+      Subpackages
+      <span class="md-nav__icon md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"></path></svg>
+</span>
+</label>
+<nav aria-label="Subpackages" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="nav-9-4-3">
+<span class="md-nav__icon md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"></path></svg>
+</span>
+        Subpackages
+      </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="nav-9-4-3-1" id="nav-9-4-3-1" type="checkbox"/>
+<label class="md-nav__link" for="nav-9-4-3-1">
+      Contrib Package
+      <span class="md-nav__icon md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"></path></svg>
+</span>
+</label>
+<nav aria-label="Contrib Package" class="md-nav" data-md-level="4">
+<label class="md-nav__title" for="nav-9-4-3-1">
+<span class="md-nav__icon md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"></path></svg>
+</span>
+        Contrib Package
+      </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../modules/contrib/flask_dynaconf/" title="Flask dynaconf">
+      Flask dynaconf
+    </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="nav-9-4-3-2" id="nav-9-4-3-2" type="checkbox"/>
+<label class="md-nav__link" for="nav-9-4-3-2">
+      Loaders
+      <span class="md-nav__icon md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"></path></svg>
+</span>
+</label>
+<nav aria-label="Loaders" class="md-nav" data-md-level="4">
+<label class="md-nav__title" for="nav-9-4-3-2">
+<span class="md-nav__icon md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"></path></svg>
+</span>
+        Loaders
+      </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../modules/loaders/base/" title="Base">
+      Base
+    </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../modules/loaders/env_loader/" title="env">
+      env
+    </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../modules/loaders/ini_loader/" title="ini">
+      ini
+    </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../modules/loaders/json_loader/" title="json">
+      json
+    </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../modules/loaders/py_loader/" title="py">
+      py
+    </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../modules/loaders/redis_loader/" title="redis">
+      redis
+    </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../modules/loaders/toml_loader/" title="toml">
+      toml
+    </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../modules/loaders/vault_loader/" title="vault">
+      vault
+    </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../modules/loaders/yaml_loader/" title="yaml">
+      yaml
+    </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="nav-9-4-3-3" id="nav-9-4-3-3" type="checkbox"/>
+<label class="md-nav__link" for="nav-9-4-3-3">
+      Utils
+      <span class="md-nav__icon md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"></path></svg>
+</span>
+</label>
+<nav aria-label="Utils" class="md-nav" data-md-level="4">
+<label class="md-nav__title" for="nav-9-4-3-3">
+<span class="md-nav__icon md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"></path></svg>
+</span>
+        Utils
+      </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../modules/utils/boxing/" title="Boxing">
+      Boxing
+    </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../modules/utils/parse_conf/" title="Parse Config">
+      Parse Config
+    </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../modules/utils/files/" title="Files">
+      Files
+    </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../license/" title="License">
+      License
+    </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"></path></svg>
+</span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#installation">
+    Installation
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#usage">
+    Usage
+  </a>
+<nav aria-label="Usage" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#accessing-config-variables-in-your-python-application">
+    Accessing config variables in your Python application
+  </a>
+<nav aria-label="Accessing config variables in your Python application" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example-of-program-to-connect-to-some-database">
+    Example of program to connect to some database
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#understanding-the-settings">
+    Understanding the settings
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#working-environments">
+    Working environments
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#the-settings-files">
+    The settings files
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#settings-files-location">
+    Settings files location
+  </a>
+<nav aria-label="Settings files location" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#illustrative-example">
+    Illustrative Example
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#loading-order">
+    Loading order
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#local-configuration-files-and-merging-to-existing-data">
+    Local configuration files and merging to existing data
+  </a>
+<nav aria-label="Local configuration files and merging to existing data" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#mark-the-local-file-to-be-entirely-merged">
+    Mark the local file to be entirely merged
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#dynaconf-merge-token">
+    dynaconf merge token
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#dunder-merging-for-nested-structures">
+    Dunder merging for nested structures
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#global-merge">
+    Global merge
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#settings-file-formats">
+    Settings File Formats
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#supported-file-formats">
+    Supported file formats
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#additional-secrets-file-for-ci-jenkins-etc">
+    Additional secrets file (for CI, jenkins etc.)
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#including-files-inside-files">
+    Including files inside files
+  </a>
+<nav aria-label="Including files inside files" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#including-via-environment-variable">
+    Including via environment variable
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#programmatically-loading-a-settings-file">
+    Programmatically loading a settings file
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#template-substitutions">
+    Template substitutions
+  </a>
+<nav aria-label="Template substitutions" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#format-token">
+    @format token
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#jinja-token">
+    @jinja token
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#merging-existing-data-structures">
+    Merging existing data structures
+  </a>
+<nav aria-label="Merging existing data structures" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#avoiding-duplications-on-lists">
+    Avoiding duplications on lists
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#known-caveats">
+    Known caveats
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#global-merge_1">
+    Global merge
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#more-examples">
+    More examples
+  </a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content">
+<article class="md-content__inner md-typeset">
+<h1 id="getting-started">Getting Started</h1>
+<h2 id="installation">Installation</h2>
+<blockquote>
+<p>Python 3.x is required</p>
+</blockquote>
+<pre><code>$ pip install dynaconf
+</code></pre>
+<blockquote>
+<p>Default installation supports .toml, .py and .json file formats and also environment variables (.env supported) - to support YAML add <code>pip install dynaconf[yaml]</code> or <code>pip install dynaconf[all]</code></p>
+</blockquote>
+<h2 id="usage">Usage</h2>
+<h3 id="accessing-config-variables-in-your-python-application">Accessing config variables in your Python application</h3>
+<p>In your Python program wherever you need to access a settings variable you use the canonical object <code>from dynaconf import settings</code>:</p>
+<h4 id="example-of-program-to-connect-to-some-database">Example of program to connect to some database</h4>
+<pre><code class="python">from some.db import Client
 
 from dynaconf import settings
 
@@ -11,9 +907,57 @@ conn = Client(
     timeout=settings.as_int('TIMEOUT'),     # Forcing casting if needed
     host=settings.get('HOST', 'localhost')  # Providing defaults
 )
-</code></pre> <h3 id="understanding-the-settings">Understanding the settings</h3> <p>Dynaconf aims to have a flexible and usable configuration system. Your applications can be configured via a <a href="#the-settings-files"><strong>configuration files</strong></a>, through <a href="../environment_variables/"><strong>environment variables</strong></a>, or both. Configurations can be separated into environments: <strong>[default], [development], [staging], [testing] and [production]</strong>. The working environment is switched via an environment variable.</p> <p>But this is all <strong>optional</strong> you can of course follow strictly the <a href="https://12factor.net/config">12 factor app</a> guide, have your configuration coming only from environment variables and provide files only to store <code>[default]</code> values. (take also a look on how to add a <a href="../validation/">dynaconf validation</a> file to your project).</p> <p><strong>Sensitive data</strong> like tokens, secret keys and password can be stored in <code>.secrets.*</code> files and/or <a href="../external_storages/">external storages</a> like <code>Redis</code> or <code>vault</code> secrets server.</p> <p>Besides the built-in optional support to <strong>Redis</strong> as settings storage dynaconf allows you to create <a href="../extend/"><strong>Custom Loaders</strong></a> and store the data wherever you want e.g: databases, memory storages, other file formats, nosql databases etc.</p> <h2 id="working-environments">Working environments</h2> <p>At any point in time, your application is operating in a given configuration environment. By default there are four such environments:</p> <ul> <li>[development] (selected by default)</li> <li>[staging]</li> <li>[testing]</li> <li>[production]</li> <li>[{custom}] &lt;-- You can create named environments that you need</li> </ul> <blockquote> <p>There is also the pseudo-envs <strong>[default]</strong> to provide comprehensive default values and <strong>[global]</strong> to provide global values to override in any other environment.</p> </blockquote> <p>Without any action, your applications by default run in the <strong>[development]</strong> environment. The environment can be changed via the <code>ENV_FOR_DYNACONF</code> environment variable. For example, to launch an application in the <strong>[staging]</strong> environment, we can run:</p> <pre><code class="bash">export ENV_FOR_DYNACONF=staging
-</code></pre> <p>or</p> <pre><code class="bash">ENV_FOR_DYNACONF=staging python yourapp.py
-</code></pre> <blockquote> <p><strong>NOTE:</strong> When using <a href="../flask/">Flask Extension</a> the environment can be changed via <code>FLASK_ENV</code> variable and for <a href="../django/">Django Extension</a> you can use <code>DJANGO_ENV</code>.</p> </blockquote> <h2 id="the-settings-files">The settings files</h2> <blockquote> <p><strong>NOTE:</strong> The settings files are optional. If it is not present, only the values from <strong>environment variables</strong> and enabled external loaders are used (<strong>.env</strong> file is also supported).</p> </blockquote> <p>Dynaconf will search for the settings files defined in <code>SETTINGS_FILE_FOR_DYNACONF</code> which by default is a list containing combinations of <strong>settings.{py|toml|json|ini|yaml}</strong> and <strong>.secrets.{py|toml|json|ini|yaml}</strong> and dynaconf will try to find each one of those combinations, optionally it is possible to configure it to a different set of files e.g: <code>export SETTINGS_FILE_FOR_DYNACONF='["myfilename.toml", "another.json"]'</code>, this value contains a list of relative or absolute paths, can be a toml-like list or a comma/semicolon separated string and can be exported to <code>envvars</code>, write to <code>.env</code> file or passed directly to Dynaconf instance.</p> <blockquote> <p>IMPORTANT: Dynaconf by default reads settings files using <code>utf-8</code> encoding, if you have settings files written in other encoding please set <code>ENCODING_FOR_DYNACONF</code> environment variable.</p> </blockquote> <p>See more details in <a href="../configuration/">configuration</a></p> <h2 id="settings-files-location">Settings files location</h2> <p>To find the files defined in <code>SETTINGS_FILE_FOR_DYNACONF</code> the search will start at the path defined in <code>ROOT_PATH_FOR_DYNACONF</code> (if defined), then will recursively walk to its root and then will try the <strong>folder where the called program is located</strong> and then it will recursively try its parent directories <strong>until the root parent is reached which can be File System <code>/</code> or the current working dir</strong> then finally will try the <strong>current working directory</strong> as the last option.</p> <blockquote> <p><strong>NOTE</strong>: If by any reason you need Dynaconf to first look at the current working dir you can customize the <code>ROOT_PATH_FOR_DYNACONF</code> via environment variable or by creating a <a href="../advanced_usage/#customizing-the-settings-object">custom settings object</a></p> </blockquote> <p>Some people prefer to put settings in a sub-folder so for each of the paths it will also search in a relative folder called <code>config/</code>.</p> <p>And for each file dynaconf will also try to load a <code>.local.</code> file, for example, if you have a <code>settings.toml</code> after loading it Dynaconf will also try to find a <code>settings.local.toml</code> if exists.</p> <p>Dynaconf will stop searching on the first match for each file and if no file is found it will <strong>fail silently</strong> unless <code>SILENT_ERRORS_FOR_DYNACONF=false</code> is exported.</p> <h3 id="illustrative-example">Illustrative Example</h3> <blockquote> <p><strong>New in 2.0.0</strong></p> </blockquote> <p>If your program has the following structure:</p> <pre><code class="text">|_ myprogram/
+</code></pre>
+<h3 id="understanding-the-settings">Understanding the settings</h3>
+<p>Dynaconf aims to have a flexible and usable configuration system. Your applications can be configured via a <a href="#the-settings-files"><strong>configuration files</strong></a>, through <a href="../environment_variables/"><strong>environment variables</strong></a>, or both. Configurations can be separated into environments: <strong>[default], [development], [staging], [testing] and [production]</strong>. The working environment is switched via an environment variable.</p>
+<p>But this is all <strong>optional</strong> you can of course follow strictly the <a href="https://12factor.net/config">12 factor app</a> guide, have your configuration coming only from environment variables and provide files only to store <code>[default]</code> values. (take also a look on how to add a <a href="../validation/">dynaconf validation</a> file to your project).</p>
+<p><strong>Sensitive data</strong> like tokens, secret keys and password can be stored in <code>.secrets.*</code> files and/or <a href="../external_storages/">external storages</a> like <code>Redis</code> or <code>vault</code> secrets server.</p>
+<p>Besides the built-in optional support to <strong>Redis</strong> as settings storage dynaconf allows you to create <a href="../extend/"><strong>Custom Loaders</strong></a> and store the data wherever you want e.g: databases, memory storages, other file formats, nosql databases etc.</p>
+<h2 id="working-environments">Working environments</h2>
+<p>At any point in time, your application is operating in a given configuration environment. By default there are four such environments:</p>
+<ul>
+<li>[development] (selected by default)</li>
+<li>[staging]</li>
+<li>[testing]</li>
+<li>[production]</li>
+<li>[{custom}] &lt;-- You can create named environments that you need</li>
+</ul>
+<blockquote>
+<p>There is also the pseudo-envs <strong>[default]</strong> to provide comprehensive default values and <strong>[global]</strong> to provide global values to override in any other environment.</p>
+</blockquote>
+<p>Without any action, your applications by default run in the <strong>[development]</strong> environment. The environment can be changed via the <code>ENV_FOR_DYNACONF</code> environment variable. For example, to launch an application in the <strong>[staging]</strong> environment, we can run:</p>
+<pre><code class="bash">export ENV_FOR_DYNACONF=staging
+</code></pre>
+<p>or</p>
+<pre><code class="bash">ENV_FOR_DYNACONF=staging python yourapp.py
+</code></pre>
+<blockquote>
+<p><strong>NOTE:</strong> When using <a href="../flask/">Flask Extension</a> the environment can be changed via <code>FLASK_ENV</code> variable and for <a href="../django/">Django Extension</a> you can use <code>DJANGO_ENV</code>.</p>
+</blockquote>
+<h2 id="the-settings-files">The settings files</h2>
+<blockquote>
+<p><strong>NOTE:</strong> The settings files are optional. If it is not present, only the values from <strong>environment variables</strong> and enabled external loaders are used (<strong>.env</strong> file is also supported).</p>
+</blockquote>
+<p>Dynaconf will search for the settings files defined in <code>SETTINGS_FILE_FOR_DYNACONF</code> which by default is a list containing combinations of <strong>settings.{py|toml|json|ini|yaml}</strong> and <strong>.secrets.{py|toml|json|ini|yaml}</strong>
+and dynaconf will try to find each one of those combinations, optionally it is possible to configure it to a different set of files e.g: <code>export SETTINGS_FILE_FOR_DYNACONF='["myfilename.toml", "another.json"]'</code>, this value contains a list of relative or absolute paths, can be a toml-like list or a comma/semicolon separated string and can be exported to <code>envvars</code>, write to <code>.env</code> file or passed directly to Dynaconf instance.</p>
+<blockquote>
+<p>IMPORTANT: Dynaconf by default reads settings files using <code>utf-8</code> encoding, if you have settings files written in other encoding please set <code>ENCODING_FOR_DYNACONF</code> environment variable.</p>
+</blockquote>
+<p>See more details in <a href="../configuration/">configuration</a></p>
+<h2 id="settings-files-location">Settings files location</h2>
+<p>To find the files defined in <code>SETTINGS_FILE_FOR_DYNACONF</code> the search will start at the path defined in <code>ROOT_PATH_FOR_DYNACONF</code> (if defined), then will recursively walk to its root and then will try the <strong>folder where the called program is located</strong> and then it will recursively try its parent directories <strong>until the root parent is reached which can be File System <code>/</code> or the current working dir</strong> then finally will try the <strong>current working directory</strong> as the last option.</p>
+<blockquote>
+<p><strong>NOTE</strong>: If by any reason you need Dynaconf to first look at the current working dir you can customize the <code>ROOT_PATH_FOR_DYNACONF</code> via environment variable or by creating a <a href="../advanced_usage/#customizing-the-settings-object">custom settings object</a></p>
+</blockquote>
+<p>Some people prefer to put settings in a sub-folder so for each of the paths it will also search in a relative folder called <code>config/</code>.</p>
+<p>And for each file dynaconf will also try to load a <code>.local.</code> file, for example, if you have a <code>settings.toml</code> after loading it Dynaconf will also try to find a <code>settings.local.toml</code> if exists.</p>
+<p>Dynaconf will stop searching on the first match for each file and if no file is found it will <strong>fail silently</strong> unless <code>SILENT_ERRORS_FOR_DYNACONF=false</code> is exported.</p>
+<h3 id="illustrative-example">Illustrative Example</h3>
+<blockquote>
+<p><strong>New in 2.0.0</strong></p>
+</blockquote>
+<p>If your program has the following structure:</p>
+<pre><code class="text">|_ myprogram/
    |_ src/
       |_ app.py
          # from dynaconf import settings
@@ -32,12 +976,106 @@ conn = Client(
    |_ .secrets.toml
       # [default]
       # password = "Utopi@"
-</code></pre> <p>And you call it from <code>myprogram</code> working dir.</p> <pre><code class="bash">cd myprogram
+</code></pre>
+<p>And you call it from <code>myprogram</code> working dir.</p>
+<pre><code class="bash">cd myprogram
 python src/app.py
-</code></pre> <p>What happens is:</p> <blockquote> <p>NOTE: The behavior explained here is valid only for the above file structure, other arrangements are possible and depending on how folders are organized dynaconf can behave differently.</p> </blockquote> <ol> <li> <p>app.py:1 does <code>from dynaconf import settings</code></p> <ul> <li>Only the <code>.env</code> file will be searched, other settings are lazy evaluated.</li> <li><code>.env</code> will be searched starting on <code>myprogram/src/.env</code></li> <li>if not found then <code>myprogram/src/config/.env</code> </li> <li>if not found then <code>myprogram/.env</code> <strong>actually found here so stops searching</strong></li> <li>if not found then <code>myprogram/config/.env</code></li> <li>It will load all values from <code>.env</code> to the environment variables and create the instance of <code>settings</code></li> </ul> </li> <li> <p>app.py:2 does the first access to a settings on <code>print(settings.NAME)</code></p> <ul> <li>Dynaconf will execute the loaders defined in <code>CORE_LOADERS</code> and <code>LOADERS</code>, it will initialize the <code>settings</code> object and start the file search.</li> <li><code>settings.{py|toml|json|ini|yaml}</code> will be searched on <code>myprogram/src/</code></li> <li>if not found then <code>myprogram/src/config</code></li> <li>if not found then <code>myprogram/</code></li> <li>if not found then <code>myprogram/config</code> <strong>settings.toml actually found here so stops searching for toml</strong></li> <li>It will load all the values defined in the <code>settings.toml</code></li> <li>It will continue to look all the other files e.g: settings.json, settings.ini, settings.yaml etc.</li> <li>Then</li> <li>It will search for <strong>.secrets.{py|toml|json|ini|yaml}</strong> on <code>myprogram/src/</code></li> <li>if not found then <code>myprogram/src/config</code></li> <li>if not found then <code>myprogram/</code> <strong>.secrets.toml actually found here so stops searching for toml</strong></li> <li>if not found then <code>myprogram/config</code> </li> <li>It will load all the values defined in <code>.secrets.toml</code> (if filename is <code>*.secret.*</code> values are hidden on logs)</li> <li>It will continue to look all the other files e.g: .secrets.json, .secrets.ini, .secrets.yaml etc.</li> <li>Then</li> <li>It will iterate the list of loaded files containing <code>[settings.toml, .secrets.toml]</code> and for each of them it will also try to find a <code>settings.local.toml</code> (<strong>found in myprogram/settings.local.toml</strong>) and a <code>.secrets.local.toml</code> using the same search tree until it is found or it will skip if not found.</li> <li>Then</li> <li>It will execute <strong>external loaders</strong> like <code>Redis</code> and <code>Vault</code> if enabled.</li> <li>It will execute <strong>custom loaders</strong> if configured.</li> <li>Then finally</li> <li>It will read all <strong>environment variables</strong> prefixed with <code>DYNACONF_</code> and load its values, in our example it loads <code>FOO='BAR'</code> from <code>.env</code> file.</li> </ul> </li> <li> <p>app.py:3 does second access to a settings on <code>print(settings.PASSWORD)</code> </p> <ul> <li>All the loaders, loaded files, config options and vars are now <strong>cached</strong> no loading has been executed.</li> <li>Only if <code>settings.get_fresh('PASSWORD')</code> is used, dynaconf will force a re-load of everything to ensure the fresh value.</li> <li>Also if <code>settings.using_env|from_env</code> or <code>ENV_FOR_DYNACONF</code> switched, e.g: from <code>[development]</code> to <code>[staging]</code>, then re-load happens.</li> <li>It is also possible to explicitly force a <code>load</code> or <code>reload</code>.</li> </ul> </li> <li> <p>Complete program output is:</p> </li> </ol> <pre><code class="bash">Oscar Wilde
+</code></pre>
+<p>What happens is:</p>
+<blockquote>
+<p>NOTE: The behavior explained here is valid only for the above file structure, other arrangements are possible and depending on how folders are organized dynaconf can behave differently.</p>
+</blockquote>
+<ol>
+<li>
+<p>app.py:1 does <code>from dynaconf import settings</code></p>
+<ul>
+<li>Only the <code>.env</code> file will be searched, other settings are lazy evaluated.</li>
+<li><code>.env</code> will be searched starting on <code>myprogram/src/.env</code></li>
+<li>if not found then <code>myprogram/src/config/.env</code> </li>
+<li>if not found then <code>myprogram/.env</code> <strong>actually found here so stops searching</strong></li>
+<li>if not found then <code>myprogram/config/.env</code></li>
+<li>It will load all values from <code>.env</code> to the environment variables and create the instance of <code>settings</code></li>
+</ul>
+</li>
+<li>
+<p>app.py:2 does the first access to a settings on <code>print(settings.NAME)</code></p>
+<ul>
+<li>Dynaconf will execute the loaders defined in <code>CORE_LOADERS</code> and <code>LOADERS</code>, it will initialize the <code>settings</code> object and start the file search.</li>
+<li><code>settings.{py|toml|json|ini|yaml}</code> will be searched on <code>myprogram/src/</code></li>
+<li>if not found then <code>myprogram/src/config</code></li>
+<li>if not found then <code>myprogram/</code></li>
+<li>if not found then <code>myprogram/config</code> <strong>settings.toml actually found here so stops searching for toml</strong></li>
+<li>It will load all the values defined in the <code>settings.toml</code></li>
+<li>It will continue to look all the other files e.g: settings.json, settings.ini, settings.yaml etc.</li>
+<li>Then</li>
+<li>It will search for <strong>.secrets.{py|toml|json|ini|yaml}</strong> on <code>myprogram/src/</code></li>
+<li>if not found then <code>myprogram/src/config</code></li>
+<li>if not found then <code>myprogram/</code> <strong>.secrets.toml actually found here so stops searching for toml</strong></li>
+<li>if not found then <code>myprogram/config</code> </li>
+<li>It will load all the values defined in <code>.secrets.toml</code> (if filename is <code>*.secret.*</code> values are hidden on logs)</li>
+<li>It will continue to look all the other files e.g: .secrets.json, .secrets.ini, .secrets.yaml etc.</li>
+<li>Then</li>
+<li>It will iterate the list of loaded files containing <code>[settings.toml, .secrets.toml]</code> and for each of them it will also try to find a <code>settings.local.toml</code> (<strong>found in myprogram/settings.local.toml</strong>) and a <code>.secrets.local.toml</code> using the same search tree until it is found or it will skip if not found.</li>
+<li>Then</li>
+<li>It will execute <strong>external loaders</strong> like <code>Redis</code> and <code>Vault</code> if enabled.</li>
+<li>It will execute <strong>custom loaders</strong> if configured.</li>
+<li>Then finally</li>
+<li>It will read all <strong>environment variables</strong> prefixed with <code>DYNACONF_</code> and load its values, in our example it loads <code>FOO='BAR'</code> from <code>.env</code> file.</li>
+</ul>
+</li>
+<li>
+<p>app.py:3 does second access to a settings on <code>print(settings.PASSWORD)</code> </p>
+<ul>
+<li>All the loaders, loaded files, config options and vars are now <strong>cached</strong> no loading has been executed.</li>
+<li>Only if <code>settings.get_fresh('PASSWORD')</code> is used, dynaconf will force a re-load of everything to ensure the fresh value.</li>
+<li>Also if <code>settings.using_env|from_env</code> or <code>ENV_FOR_DYNACONF</code> switched, e.g: from <code>[development]</code> to <code>[staging]</code>, then re-load happens.</li>
+<li>It is also possible to explicitly force a <code>load</code> or <code>reload</code>.</li>
+</ul>
+</li>
+<li>
+<p>Complete program output is:</p>
+</li>
+</ol>
+<pre><code class="bash">Oscar Wilde
 Utopi@
 BAR
-</code></pre> <blockquote> <p>TIP: If you add <code>DEBUG_LEVEL_FOR_DYNACONF=DEBUG</code> on <code>.env</code> or export this variable then you can follow the dynaconf loading process.</p> </blockquote> <h2 id="loading-order">Loading order</h2> <p>Dynaconf loads file in a overriding cascade loading order using the predefined order:</p> <ol> <li>First the environment variables (and <code>.env</code> file) to read for <a href="../configuration/">configuration</a> options</li> <li>Then the paths provided in <code>PRELOAD_FOR_DYNACONF</code> using all enabled loaders.</li> <li>Then the files defined in <code>SETTINGS_FILE_FOR_DYNACONF</code> using all enabled loaders.<ul> <li>Files containing <code>.local.</code> in its name will be loaded at the end. e.g: <code>settings.local.yaml</code></li> </ul> </li> <li>Then contents of <code>SECRETS_FOR_DYNACONF</code> envvar filename if defined (useful for jenkins and other CI)</li> <li>Then the loaders defined in <code>LOADERS_FOR_DYNACONF</code> <ul> <li>Redis if enabled by <code>REDIS_FOR_DYNACONF=1</code></li> <li>Vault if enabled by <code>Vault_FOR_DYNACONF=1</code></li> <li>Custom loaders if any added</li> <li>Environment variables loader will be the last always</li> </ul> </li> <li>If there is any <code>DYNACONF_INCLUDE</code> key found or <code>INCLUDES_FOR_DYNACONF</code> env vars this will be loaded.</li> </ol> <p>The order can be changed by overriding the <code>SETTINGS_FILE_FOR_DYNACONF</code> the <code>CORE_LOADERS_FOR_DYNACONF</code> and <code>LOADERS_FOR_DYNACONF</code> variables.</p> <blockquote> <p><strong>NOTE</strong>: Dynaconf works in an <strong>layered override</strong> mode based on the above order, so if you have multiple file formats with conflicting keys defined, the precedence will be based on the loading order. If you dont want to have values like <code>lists</code> and <code>dicts</code> overwritten take a look on how to <a href="./#merging-existing-values">merge existing values</a></p> </blockquote> <h2 id="local-configuration-files-and-merging-to-existing-data">Local configuration files and merging to existing data</h2> <blockquote> <p>New in <strong>2.2.0</strong></p> </blockquote> <p>This feature is useful for maintaining a shared set of config files for a team, while still allowing for local configuration.</p> <p>Any file matched by the glob <code>*.local.*</code> will be read at the end of file loading order. So it is possible to have local settings files that are for example not committed to the version controlled repository. (e:g add <code>**/*.local*</code> to your <code>.gitignore</code>)</p> <p>So if you have <code>settings.toml</code> Dynaconf will load it and after all will also try to load a file named <code>settings.local.toml</code> if it does exist. And the same applies to all the other supported extensions <code>settings.local.{py,json,yaml,toml,ini,cfg}</code></p> <p>Example:</p> <pre><code class="ini"># settings.toml        # &lt;-- 1st loaded
+</code></pre>
+<blockquote>
+<p>TIP: If you add <code>DEBUG_LEVEL_FOR_DYNACONF=DEBUG</code> on <code>.env</code> or export this variable then you can follow the dynaconf loading process.</p>
+</blockquote>
+<h2 id="loading-order">Loading order</h2>
+<p>Dynaconf loads file in a overriding cascade loading order using the predefined order:</p>
+<ol>
+<li>First the environment variables (and <code>.env</code> file) to read for <a href="../configuration/">configuration</a> options</li>
+<li>Then the paths provided in <code>PRELOAD_FOR_DYNACONF</code> using all enabled loaders.</li>
+<li>Then the files defined in <code>SETTINGS_FILE_FOR_DYNACONF</code> using all enabled loaders.<ul>
+<li>Files containing <code>.local.</code> in its name will be loaded at the end. e.g: <code>settings.local.yaml</code></li>
+</ul>
+</li>
+<li>Then contents of <code>SECRETS_FOR_DYNACONF</code> envvar filename if defined (useful for jenkins and other CI)</li>
+<li>Then the loaders defined in <code>LOADERS_FOR_DYNACONF</code> <ul>
+<li>Redis if enabled by <code>REDIS_FOR_DYNACONF=1</code></li>
+<li>Vault if enabled by <code>Vault_FOR_DYNACONF=1</code></li>
+<li>Custom loaders if any added</li>
+<li>Environment variables loader will be the last always</li>
+</ul>
+</li>
+<li>If there is any <code>DYNACONF_INCLUDE</code> key found or <code>INCLUDES_FOR_DYNACONF</code> env vars this will be loaded.</li>
+</ol>
+<p>The order can be changed by overriding the <code>SETTINGS_FILE_FOR_DYNACONF</code> the <code>CORE_LOADERS_FOR_DYNACONF</code> and <code>LOADERS_FOR_DYNACONF</code> variables.</p>
+<blockquote>
+<p><strong>NOTE</strong>: Dynaconf works in an <strong>layered override</strong> mode based on the above order, so if you have multiple file formats with conflicting keys defined, the precedence will be based on the loading order.
+If you dont want to have values like <code>lists</code> and <code>dicts</code> overwritten take a look on how to <a href="./#merging-existing-values">merge existing values</a></p>
+</blockquote>
+<h2 id="local-configuration-files-and-merging-to-existing-data">Local configuration files and merging to existing data</h2>
+<blockquote>
+<p>New in <strong>2.2.0</strong></p>
+</blockquote>
+<p>This feature is useful for maintaining a shared set of config files for a team, while still allowing for local configuration.</p>
+<p>Any file matched by the glob <code>*.local.*</code> will be read at the end of file loading order. So it is possible to have local settings files that are for example not committed to the version controlled repository. (e:g add <code>**/*.local*</code> to your <code>.gitignore</code>)</p>
+<p>So if you have <code>settings.toml</code> Dynaconf will load it and after all will also try to load a file named <code>settings.local.toml</code> if it does exist. And the same applies to all the other supported extensions <code>settings.local.{py,json,yaml,toml,ini,cfg}</code></p>
+<p>Example:</p>
+<pre><code class="ini"># settings.toml        # &lt;-- 1st loaded
 [default]
 colors = ["green", "blue"]
 parameters = {enabled=true, number=42}
@@ -51,40 +1089,80 @@ password = 1234
 colors = ["pink"]
 parameters = {enabled=false}
 password = 9999
-</code></pre> <p>So with above the values will be:</p> <pre><code class="python">settings.COLORS == ["pink"]
+</code></pre>
+<p>So with above the values will be:</p>
+<pre><code class="python">settings.COLORS == ["pink"]
 settings.PARAMETERS == {"enabled": False}
 settings.PASSWORD == 9999
-</code></pre> <p>For each loaded file dynaconf will <code>override</code> previous existing keys so if you want to <code>append</code> new values to existing variables you can use 3 strategies.</p> <h3 id="mark-the-local-file-to-be-entirely-merged">Mark the local file to be entirely merged</h3> <blockquote> <p>New in <strong>2.2.0</strong></p> </blockquote> <pre><code class="ini"># settings.local.toml
+</code></pre>
+<p>For each loaded file dynaconf will <code>override</code> previous existing keys so if you want to <code>append</code> new values to existing variables you can use 3 strategies.</p>
+<h3 id="mark-the-local-file-to-be-entirely-merged">Mark the local file to be entirely merged</h3>
+<blockquote>
+<p>New in <strong>2.2.0</strong></p>
+</blockquote>
+<pre><code class="ini"># settings.local.toml
 dynaconf_merge = true
 [default]
 colors = ["pink"]
 parameters = {enabled=false}
-</code></pre> <p>By adding <code>dynaconf_merge</code> to the top root of the file mark entire file to be merged.</p> <p>And then the values will be updated in to existing data structures.</p> <pre><code class="python">settings.COLORS == ["pink", "green", "blue"]
+</code></pre>
+<p>By adding <code>dynaconf_merge</code> to the top root of the file mark entire file to be merged.</p>
+<p>And then the values will be updated in to existing data structures.</p>
+<pre><code class="python">settings.COLORS == ["pink", "green", "blue"]
 settings.PARAMETERS == {"enabled": False, "number": 42}
 settings.PASSWORD == 9999
-</code></pre> <p>You can also mark a single <code>env</code> like <code>[development]</code> to be merged.</p> <pre><code class="ini"># settings.local.toml
+</code></pre>
+<p>You can also mark a single <code>env</code> like <code>[development]</code> to be merged.</p>
+<pre><code class="ini"># settings.local.toml
 [development]
 dynaconf_merge = true
 colors = ["pink"]
 parameters = {enabled=false}
-</code></pre> <h3 id="dynaconf-merge-token">dynaconf merge token</h3> <pre><code class="ini"># settings.local.toml
+</code></pre>
+<h3 id="dynaconf-merge-token">dynaconf merge token</h3>
+<pre><code class="ini"># settings.local.toml
 [default]
 colors = ["pink", "dynaconf_merge"]
 parameters = {enabled=false, dynaconf_merge=true}
-</code></pre> <p>By adding <code>dynaconf_merge</code> to a <code>list</code> or <code>dict</code> marks it as a merge candidate.</p> <p>And then the values will be updated in to existing data structures.</p> <pre><code class="python">settings.COLORS == ["pink", "green", "blue"]
+</code></pre>
+<p>By adding <code>dynaconf_merge</code> to a <code>list</code> or <code>dict</code> marks it as a merge candidate.</p>
+<p>And then the values will be updated in to existing data structures.</p>
+<pre><code class="python">settings.COLORS == ["pink", "green", "blue"]
 settings.PARAMETERS == {"enabled": False, "number": 42}
 settings.PASSWORD == 9999
-</code></pre> <blockquote> <p>New in <strong>2.2.0</strong></p> </blockquote> <p>And it also works having <code>dynaconf_merge</code> as dict keys holding the value to be merged.</p> <pre><code class="ini"># settings.local.toml
+</code></pre>
+<blockquote>
+<p>New in <strong>2.2.0</strong></p>
+</blockquote>
+<p>And it also works having <code>dynaconf_merge</code> as dict keys holding the value to be merged.</p>
+<pre><code class="ini"># settings.local.toml
 [default.colors]
 dynaconf_merge = ["pink"]  # &lt;-- value ["pink"] will be merged in to existing colors
 
 [default.parameters]
 dynaconf_merge = {enabled=false}
-</code></pre> <h3 id="dunder-merging-for-nested-structures">Dunder merging for nested structures</h3> <p>For nested structures the recommendation is to use dunder merging because it it easier to read and also it has no limitations in terms of nesting levels.</p> <pre><code class="ini"># settings.local.yaml
+</code></pre>
+<h3 id="dunder-merging-for-nested-structures">Dunder merging for nested structures</h3>
+<p>For nested structures the recommendation is to use dunder merging because it it easier to read and also it has no limitations in terms of nesting levels.</p>
+<pre><code class="ini"># settings.local.yaml
 [default]
 parameters__enabled = false
-</code></pre> <p>The use of <code>__</code> to denote nested level will ensure the key is merged with existing values read more in <a href="#merging-existing-values">merging existing values</a>.</p> <h3 id="global-merge">Global merge</h3> <pre><code class="bash">export MERGE_ENABLED_FOR_DYNACONF=true
-</code></pre> <p>or put it in your <code>.env</code> file then Dynaconf will automatically merge all existing variables.</p> <blockquote> <p><strong>BEWARE</strong>: Using <code>MERGE_ENABLED_FOR_DYNACONF</code> can lead to unexpected results because you do not have granular control of what is being merged or overwritten so the recommendation is to use other options.</p> </blockquote> <h2 id="settings-file-formats">Settings File Formats</h2> <p>The recommended file format is <strong>TOML</strong> but you can choose to use any of <strong>.{py|toml|json|ini|yaml}</strong>.</p> <p>The file must be a series of sections, at least one for <strong>[default]</strong>, optionally one for each <strong>[environment]</strong>, and an optional <strong>[global]</strong> section. Each section contains <strong>key-value</strong> pairs corresponding to configuration parameters for that <strong>[environment]</strong>. If a configuration parameter is missing, the value from <strong>[default]</strong> is used. The following is a complete <code>settings.toml</code> file, where every standard configuration parameter is specified within the <strong>[default]</strong> section:</p> <blockquote> <p><strong>NOTE</strong>: if the file format choosen is <code>.py</code> as it does not support sections you can create multiple files like <code>settings.py</code> for [default], <code>development_settings.py</code>, <code>production_settings.py</code> and <code>global_settings.py</code>. <strong>ATTENTION</strong>: using <code>.py</code> is not recommended for configuration - prefer to use static files like <strong>TOML</strong>!</p> </blockquote> <pre><code class="ini">[default]
+</code></pre>
+<p>The use of <code>__</code> to denote nested level will ensure the key is merged with existing values read more in <a href="#merging-existing-values">merging existing values</a>.</p>
+<h3 id="global-merge">Global merge</h3>
+<pre><code class="bash">export MERGE_ENABLED_FOR_DYNACONF=true
+</code></pre>
+<p>or put it in your <code>.env</code> file then Dynaconf will automatically merge all existing variables.</p>
+<blockquote>
+<p><strong>BEWARE</strong>: Using <code>MERGE_ENABLED_FOR_DYNACONF</code> can lead to unexpected results because you do not have granular control of what is being merged or overwritten so the recommendation is to use other options.</p>
+</blockquote>
+<h2 id="settings-file-formats">Settings File Formats</h2>
+<p>The recommended file format is <strong>TOML</strong> but you can choose to use any of <strong>.{py|toml|json|ini|yaml}</strong>.</p>
+<p>The file must be a series of sections, at least one for <strong>[default]</strong>, optionally one for each <strong>[environment]</strong>, and an optional <strong>[global]</strong> section. Each section contains <strong>key-value</strong> pairs corresponding to configuration parameters for that <strong>[environment]</strong>. If a configuration parameter is missing, the value from <strong>[default]</strong> is used. The following is a complete <code>settings.toml</code> file, where every standard configuration parameter is specified within the <strong>[default]</strong> section:</p>
+<blockquote>
+<p><strong>NOTE</strong>: if the file format choosen is <code>.py</code> as it does not support sections you can create multiple files like <code>settings.py</code> for [default], <code>development_settings.py</code>, <code>production_settings.py</code> and <code>global_settings.py</code>. <strong>ATTENTION</strong>: using <code>.py</code> is not recommended for configuration - prefer to use static files like <strong>TOML</strong>!</p>
+</blockquote>
+<pre><code class="ini">[default]
 username = "admin"
 port = 5000
 host = "localhost"
@@ -108,7 +1186,13 @@ value = "this value is set for custom [awesomeenv]"
 
 [global]
 message = "This value overrides message of default and other envs"
-</code></pre> <p>The <strong>[global]</strong> pseudo-environment can be used to set and/or override configuration parameters globally. A parameter defined in a <strong>[global]</strong> section sets, or overrides if already present, that parameter in every environment. </p> <blockquote> <p>IMPORTANT: the environments and pseudo envs such as <code>[global], ['default']</code> affects only the current file, it means that a value in <code>[global]</code> will override values defined only on that file or previous loaded files, if in another file the value is reloaded then the global values is overwritten. Dynaconf supports multiple file formats but the recommendation is not to mix them, choose a format and stick with it.</p> </blockquote> <p>For example, given the following <code>settings.toml</code> file, the value of address will be <strong>"1.2.3.4"</strong> in every environment:</p> <pre><code class="cfg">[global]
+</code></pre>
+<p>The <strong>[global]</strong> pseudo-environment can be used to set and/or override configuration parameters globally. A parameter defined in a <strong>[global]</strong> section sets, or overrides if already present, that parameter in every environment. </p>
+<blockquote>
+<p>IMPORTANT: the environments and pseudo envs such as <code>[global], ['default']</code> affects only the current file, it means that a value in <code>[global]</code> will override values defined only on that file or previous loaded files, if in another file the value is reloaded then the global values is overwritten. Dynaconf supports multiple file formats but the recommendation is not to mix them, choose a format and stick with it.</p>
+</blockquote>
+<p>For example, given the following <code>settings.toml</code> file, the value of address will be <strong>"1.2.3.4"</strong> in every environment:</p>
+<pre><code class="cfg">[global]
 address = "1.2.3.4"
 
 [development]
@@ -116,49 +1200,145 @@ address = "localhost"
 
 [production]
 address = "0.0.0.0"
-</code></pre> <blockquote> <p><strong>NOTE</strong>: The <strong>[env]</strong> name and first level variables are case insensitive as internally dynaconf will always use upper case, that means <strong>[development]</strong> and <strong>[DEVELOPMENT]</strong> are equivalent and <strong>address</strong> and <strong>ADDRESS</strong> are also equivalent. <strong>But the recommendation is to <code>always use lower case in files</code> and <code>always use upper case in env vars and .py files</code></strong> (This rule does not apply for inner data structures as dictionaries and arrays).</p> </blockquote> <h2 id="supported-file-formats">Supported file formats</h2> <p>By default <strong>toml</strong> is the recommended format to store your configuration, however you can switch to a different supported format.</p> <pre><code class="bash"># If you wish to include support for more sources
+</code></pre>
+<blockquote>
+<p><strong>NOTE</strong>: The <strong>[env]</strong> name and first level variables are case insensitive as internally dynaconf will always use upper case, that means <strong>[development]</strong> and <strong>[DEVELOPMENT]</strong> are equivalent and <strong>address</strong> and <strong>ADDRESS</strong> are also equivalent. <strong>But the recommendation is to <code>always use lower case in files</code> and <code>always use upper case in env vars and .py files</code></strong> (This rule does not apply for inner data structures as dictionaries and arrays).</p>
+</blockquote>
+<h2 id="supported-file-formats">Supported file formats</h2>
+<p>By default <strong>toml</strong> is the recommended format to store your configuration, however you can switch to a different supported format.</p>
+<pre><code class="bash"># If you wish to include support for more sources
 pip3 install dynaconf[yaml|ini|redis|vault]
 
 # for a complete installation
 pip3 install dynaconf[all]
-</code></pre> <p>Once the support is installed no extra configuration is needed to load data from those files.</p> <p>If you need a different file format take a look on how to extend dynaconf writing a <a href="../extend/">custom loader</a></p> <h2 id="additional-secrets-file-for-ci-jenkins-etc">Additional secrets file (for CI, jenkins etc.)</h2> <p>It is common to have an extra <code>secrets</code> file that is available only when running on specific CI environment like <code>Jenkins</code>, usually there will be an environment variable pointing to the file.</p> <p>On Jenkins it is done on job settings by exporting the <code>secrets</code> information.</p> <p>Dynaconf can handle this via <code>SECRETS_FOR_DYNACONF</code> environment variable.</p> <p>ex:</p> <pre><code class="bash">export SECRETS_FOR_DYNACONF=/path/to/settings.toml{json|py|ini|yaml}
-</code></pre> <p>If that variable exists in your environment then Dynaconf will also load it.</p> <h2 id="including-files-inside-files">Including files inside files</h2> <p>Sometimes you have multiple fragments of settings in different files, dynaconf allow easy merging of those files via <code>dynaconf_include</code>.</p> <p>Example:</p> <p><code>plugin1.toml</code></p> <pre><code class="cfg">[development]
+</code></pre>
+<p>Once the support is installed no extra configuration is needed to load data from those files.</p>
+<p>If you need a different file format take a look on how to extend dynaconf writing a <a href="../extend/">custom loader</a></p>
+<h2 id="additional-secrets-file-for-ci-jenkins-etc">Additional secrets file (for CI, jenkins etc.)</h2>
+<p>It is common to have an extra <code>secrets</code> file that is available only when running on specific CI environment like <code>Jenkins</code>, usually there will be an environment variable pointing to the file.</p>
+<p>On Jenkins it is done on job settings by exporting the <code>secrets</code> information.</p>
+<p>Dynaconf can handle this via <code>SECRETS_FOR_DYNACONF</code> environment variable.</p>
+<p>ex:</p>
+<pre><code class="bash">export SECRETS_FOR_DYNACONF=/path/to/settings.toml{json|py|ini|yaml}
+</code></pre>
+<p>If that variable exists in your environment then Dynaconf will also load it.</p>
+<h2 id="including-files-inside-files">Including files inside files</h2>
+<p>Sometimes you have multiple fragments of settings in different files, dynaconf allow easy merging of those files via <code>dynaconf_include</code>.</p>
+<p>Example:</p>
+<p><code>plugin1.toml</code></p>
+<pre><code class="cfg">[development]
 plugin_specific_variable = 'value for development'
-</code></pre> <p>and even mixing different formats:<br/> <code>plugin2.yaml</code></p> <pre><code class="yaml">production:
+</code></pre>
+<p>and even mixing different formats:<br/>
+<code>plugin2.yaml</code></p>
+<pre><code class="yaml">production:
   plugin_specific_variable: 'value for production'
-</code></pre> <p>Then it can be merged on main <code>settings.toml</code> file via <code>dynaconf_include</code></p> <p><code>settings.toml</code></p> <pre><code class="cfg">[default]
+</code></pre>
+<p>Then it can be merged on main <code>settings.toml</code> file via <code>dynaconf_include</code></p>
+<p><code>settings.toml</code></p>
+<pre><code class="cfg">[default]
 dynaconf_include = ["plugin1.toml", "plugin2.yaml"]
 DEBUG = false
 SERVER = "base.example.com"
 PORT = 6666
-</code></pre> <p>A settings file can include a <code>dynaconf_include</code> stanza, whose exact syntax will depend on the type of settings file (json, yaml, toml, etc) being used:</p> <p><code>cfg [default] dynaconf_include = ["/absolute/path/to/plugin1.toml", "relative/path/to/plugin2.toml"] DEBUG = false SERVER = "www.example.com"</code></p> <p>When loaded, the files located at the (relative or absolute) paths in the <code>dynaconf_include</code> key will be parsed, in order, and override any base settings that may exist in your current configuration.</p> <p>The paths can be relative to the base <code>settings.(toml|yaml|json|ini|py)</code> file, or can be absolute paths.</p> <p>The idea here is that plugins or extensions for whatever framework or architecture you are using can provide their own configuration values when necessary.</p> <p>It is also possible to specify glob-based patterns:</p> <p><code>cfg [default] dynaconf_include = ["configurations/*.toml"] DEBUG = false SERVER = "www.example.com"</code></p> <p>Currently, only a single level of includes is permitted to keep things simple and straightforward.</p> <h3 id="including-via-environment-variable">Including via environment variable</h3> <p>It is also possible to setup includes using environment variable.</p> <pre><code class="bash"># A glob pattern
+</code></pre>
+<p>A settings file can include a <code>dynaconf_include</code> stanza, whose exact
+  syntax will depend on the type of settings file (json, yaml, toml, etc)
+  being used:</p>
+<p><code>cfg
+  [default]
+  dynaconf_include = ["/absolute/path/to/plugin1.toml", "relative/path/to/plugin2.toml"]
+  DEBUG = false
+  SERVER = "www.example.com"</code></p>
+<p>When loaded, the files located at the (relative or absolute) paths in
+  the <code>dynaconf_include</code> key will be parsed, in order, and override any
+  base settings that may exist in your current configuration.</p>
+<p>The paths can be relative to the base <code>settings.(toml|yaml|json|ini|py)</code>
+  file, or can be absolute paths.</p>
+<p>The idea here is that plugins or extensions for whatever framework or
+  architecture you are using can provide their own configuration values
+  when necessary.</p>
+<p>It is also possible to specify glob-based patterns:</p>
+<p><code>cfg
+  [default]
+  dynaconf_include = ["configurations/*.toml"]
+  DEBUG = false
+  SERVER = "www.example.com"</code></p>
+<p>Currently, only a single level of includes is permitted to keep things
+  simple and straightforward.</p>
+<h3 id="including-via-environment-variable">Including via environment variable</h3>
+<p>It is also possible to setup includes using environment variable.</p>
+<pre><code class="bash"># A glob pattern
 export INCLUDES_FOR_DYNACONF='/etc/myprogram/conf.d/*.toml'
 # a single path
 export INCLUDES_FOR_DYNACONF='/path/to/file.yaml'
 # multiple files
 export INCLUDES_FOR_DYNACONF='/path/to/file.yaml;/other/path/to/file.toml'
-</code></pre> <h2 id="programmatically-loading-a-settings-file">Programmatically loading a settings file</h2> <pre><code class="python">from dynaconf import settings
+</code></pre>
+<h2 id="programmatically-loading-a-settings-file">Programmatically loading a settings file</h2>
+<pre><code class="python">from dynaconf import settings
 settings.load_file(path="/path/to/file.toml")  # list or `;/,` separated allowed
-</code></pre> <blockquote> <p><strong>NOTE</strong>: programmatically loaded file is not persisted, once <code>env</code> is changed via <code>setenv|ugin_env</code>, or a <code>reload</code> or <code>configure</code> is invoked it will be cleaned, to persist it needs to go to <code>INCLUDES_FOR_DYNACONF</code> variable or you need to load it programmatically again.</p> </blockquote> <h2 id="template-substitutions">Template substitutions</h2> <p>Dynaconf has 2 tokens to enable string substitutions <code>@format</code> and <code>@jinja</code>.</p> <h3 id="format-token">@format token</h3> <p>Dynaconf allows template substitutions for strings values, by using the <code>@format</code> token prefix and including placeholders accepted by Python's <code>str.format</code> method Dynaconf will call it lazily upon access time.</p> <p>The call will be like:</p> <pre><code class="py">"&lt;YOURVALUE&gt;".format(env=os.environ, this=dynaconf.settings)
-</code></pre> <p>So in your string you can refer to environment variables via <code>env</code> object, and also to variables defined int the settings object itself via <code>this</code> reference. It is lazily evaluated on access it will use the final value for a settings regardless the order of load.</p> <p>Example:</p> <pre><code class="bash">export PROGRAM_NAME=calculator
-</code></pre> <p>settings.toml</p> <pre><code class="toml">[default]
+</code></pre>
+<blockquote>
+<p><strong>NOTE</strong>: programmatically loaded file is not persisted, once <code>env</code> is changed via <code>setenv|ugin_env</code>, or a <code>reload</code> or <code>configure</code> is invoked it will be cleaned, to persist it needs to go to <code>INCLUDES_FOR_DYNACONF</code> variable or you need to load it programmatically again.</p>
+</blockquote>
+<h2 id="template-substitutions">Template substitutions</h2>
+<p>Dynaconf has 2 tokens to enable string substitutions <code>@format</code> and <code>@jinja</code>.</p>
+<h3 id="format-token">@format token</h3>
+<p>Dynaconf allows template substitutions for strings values, by using the <code>@format</code> token prefix and including placeholders accepted by Python's <code>str.format</code> method Dynaconf will call
+it lazily upon access time.</p>
+<p>The call will be like:</p>
+<pre><code class="py">"&lt;YOURVALUE&gt;".format(env=os.environ, this=dynaconf.settings)
+</code></pre>
+<p>So in your string you can refer to environment variables via <code>env</code> object, and also to variables defined int the settings object itself via <code>this</code> reference. It is lazily evaluated on access it will use the final value for a settings regardless the order of load.</p>
+<p>Example:</p>
+<pre><code class="bash">export PROGRAM_NAME=calculator
+</code></pre>
+<p>settings.toml</p>
+<pre><code class="toml">[default]
 DB_NAME = "mydb.db"
 
 [development]
 DB_PATH = "@format {env[HOME]}/{this.current_env}/{env[PROGRAM_NAME]}/{this.DB_NAME}"
-</code></pre> <ul> <li><code>{env[HOME]}</code> is the same as <code>os.environ["HOME"]</code> or <code>$HOME</code> in the shell.</li> <li><code>{this.current_env}</code> is the same as <code>settings.current_env</code></li> <li><code>{env[PROGRAM_NAME]}</code> is the same as <code>os.environ["PROGRAM_NAME"]</code> or <code>$PROGRAM_NAME</code> in the shell.</li> <li><code>{this.DB_NAME}</code> is the same as <code>settins.DB_NAME</code> or <code>settings["DB_NAME"]</code></li> </ul> <p>so in your <code>program</code></p> <pre><code class="py">from dynaconf import settings
+</code></pre>
+<ul>
+<li><code>{env[HOME]}</code> is the same as <code>os.environ["HOME"]</code> or <code>$HOME</code> in the shell.</li>
+<li><code>{this.current_env}</code> is the same as <code>settings.current_env</code></li>
+<li><code>{env[PROGRAM_NAME]}</code> is the same as <code>os.environ["PROGRAM_NAME"]</code> or <code>$PROGRAM_NAME</code> in the shell.</li>
+<li><code>{this.DB_NAME}</code> is the same as <code>settins.DB_NAME</code> or <code>settings["DB_NAME"]</code></li>
+</ul>
+<p>so in your <code>program</code></p>
+<pre><code class="py">from dynaconf import settings
 
 settings.DB_PATH == '~/DEVELOPMENT/calculator/mydb.db'
-</code></pre> <h3 id="jinja-token">@jinja token</h3> <p>If <code>jinja2</code> package is installed then dynaconf will also allow the use jinja to render string values.</p> <p>Example:</p> <pre><code class="bash">export PROGRAM_NAME=calculator
-</code></pre> <p>settings.toml</p> <pre><code class="toml">[default]
+</code></pre>
+<h3 id="jinja-token">@jinja token</h3>
+<p>If <code>jinja2</code> package is installed then dynaconf will also allow the use jinja to render string values.</p>
+<p>Example:</p>
+<pre><code class="bash">export PROGRAM_NAME=calculator
+</code></pre>
+<p>settings.toml</p>
+<pre><code class="toml">[default]
 DB_NAME = "mydb.db"
 
 [development]
 DB_NAME = "@jinja {{env.HOME}}/{{this.current_env | lower}}/{{env["PROGRAM_NAME"]}}/{{this.DB_NAME}}"
-</code></pre> <p>so in your <code>program</code></p> <pre><code class="py">from dynaconf import settings
+</code></pre>
+<p>so in your <code>program</code></p>
+<pre><code class="py">from dynaconf import settings
 
 settings.DB_PATH == '~/development/calculator/mydb.db'
-</code></pre> <p>The main difference is that Jinja allows some Python expressions to be avaluated such as <code>{% for, if, while %}</code> and also supports calling methods and has lots of filters like <code>| lower</code>.</p> <p>Jinja supports its built-in filters listed in <a href="http://jinja.palletsprojects.com/en/master/templates/#builtin-filters">Builtin Filters Page</a> and Dynaconf includes aditional filters for <code>os.path</code> module: <code>abspath</code>. <code>realpath</code>, <code>relpath</code>, <code>basename</code> and <code>dirname</code> and usage is like: <code>VALUE = "@jinja {{this.FOO | abspath}}"</code></p> <h2 id="merging-existing-data-structures">Merging existing data structures</h2> <p>If your settings has existing variables of types <code>list</code> ot <code>dict</code> and you want to <code>merge</code> instead of <code>override</code> then the <code>dynaconf_merge</code> and <code>dynaconf_merge_unique</code> stanzas can mark that variable as a candidate for merging.</p> <p>For <strong>dict</strong> value:</p> <p>Your main settings file (e.g <code>settings.toml</code>) has an existing <code>DATABASE</code> dict setting on <code>[default]</code> env.</p> <p>Now you want to contribute to the same <code>DATABASE</code> key by adding new keys, so you can use <code>dynaconf_merge</code> at the end of your dict:</p> <p>In specific <code>[envs]</code></p> <pre><code class="cfg">[default]
+</code></pre>
+<p>The main difference is that Jinja allows some Python expressions to be avaluated such as <code>{% for, if, while %}</code> and also supports calling methods and has lots of filters like <code>| lower</code>.</p>
+<p>Jinja supports its built-in filters listed in <a href="http://jinja.palletsprojects.com/en/master/templates/#builtin-filters">Builtin Filters Page</a> and Dynaconf includes aditional filters for <code>os.path</code> module: <code>abspath</code>. <code>realpath</code>, <code>relpath</code>, <code>basename</code> and <code>dirname</code> and usage is like: <code>VALUE = "@jinja {{this.FOO | abspath}}"</code></p>
+<h2 id="merging-existing-data-structures">Merging existing data structures</h2>
+<p>If your settings has existing variables of types <code>list</code> ot <code>dict</code> and you want to <code>merge</code> instead of <code>override</code> then 
+the <code>dynaconf_merge</code> and <code>dynaconf_merge_unique</code> stanzas can mark that variable as a candidate for merging.</p>
+<p>For <strong>dict</strong> value:</p>
+<p>Your main settings file (e.g <code>settings.toml</code>) has an existing <code>DATABASE</code> dict setting on <code>[default]</code> env.</p>
+<p>Now you want to contribute to the same <code>DATABASE</code> key by adding new keys, so you can use <code>dynaconf_merge</code> at the end of your dict:</p>
+<p>In specific <code>[envs]</code></p>
+<pre><code class="cfg">[default]
 database = {host="server.com", user="default"}
 
 [development]
@@ -166,7 +1346,9 @@ database = {user="dev_user", dynaconf_merge=true}
 
 [production]
 database = {user="prod_user", dynaconf_merge=true}
-</code></pre> <p>also allowed the alternative short format</p> <pre><code class="cfg">[default]
+</code></pre>
+<p>also allowed the alternative short format</p>
+<pre><code class="cfg">[default]
 database = {host="server.com", user="default"}
 
 [development.database]
@@ -174,55 +1356,187 @@ dynaconf_merge = {user="dev_user"}
 
 [production.database]
 dynaconf_merge = {user="prod_user"}
-</code></pre> <p>In an environment variable:</p> <p>Using <code>@merge</code> mark</p> <pre><code class="bash"># Toml formatted envvar
+</code></pre>
+<p>In an environment variable:</p>
+<p>Using <code>@merge</code> mark</p>
+<pre><code class="bash"># Toml formatted envvar
 export DYNACONF_DATABASE='@merge {password=1234}'
-</code></pre> <p>or <code>@merge</code> mark short format</p> <pre><code class="bash"># Toml formatted envvar
+</code></pre>
+<p>or <code>@merge</code> mark short format</p>
+<pre><code class="bash"># Toml formatted envvar
 export DYNACONF_DATABASE='@merge password=1234'
-</code></pre> <p>It is also possible to use nested <code>dunder</code> traversal like:</p> <pre><code class="bash">export DYNACONF_DATABASE__password=1234
+</code></pre>
+<p>It is also possible to use nested <code>dunder</code> traversal like:</p>
+<pre><code class="bash">export DYNACONF_DATABASE__password=1234
 export DYNACONF_DATABASE__user=admin
 export DYNACONF_DATABASE__ARGS__timeout=30
 export DYNACONF_DATABASE__ARGS__retries=5
-</code></pre> <p>Each <code>__</code> is parsed as a level traversing thought dict keys. read more in <a href="../environment_variables/#nested-keys-in-dictionaries-via-environment-variables">environment variables</a></p> <p>So the above will result in</p> <pre><code class="py">DATABASE = {'password': 1234, 'user': 'admin', 'ARGS': {'timeout': 30, 'retries': 5}}
-</code></pre> <blockquote> <p><strong>IMPORTANT</strong> lower case keys are respected only on *nix systems, unfortunately Windows environment variables are case insensitive and Python reads it as all upper cases, that means that if you are running on Windows the dictionary can have only upper case keys.</p> </blockquote> <p>You can also export a toml dictionary.</p> <pre><code class="bash"># Toml formatted envvar
+</code></pre>
+<p>Each <code>__</code> is parsed as a level traversing thought dict keys. read more in <a href="../environment_variables/#nested-keys-in-dictionaries-via-environment-variables">environment variables</a></p>
+<p>So the above will result in</p>
+<pre><code class="py">DATABASE = {'password': 1234, 'user': 'admin', 'ARGS': {'timeout': 30, 'retries': 5}}
+</code></pre>
+<blockquote>
+<p><strong>IMPORTANT</strong> lower case keys are respected only on *nix systems, unfortunately Windows environment variables are case insensitive and Python reads it as all upper cases, that means that if you are running on Windows the dictionary can have only upper case keys.</p>
+</blockquote>
+<p>You can also export a toml dictionary.</p>
+<pre><code class="bash"># Toml formatted envvar
 export DYNACONF_DATABASE='{password=1234, dynaconf_merge=true}'
-</code></pre> <p>Or in an additional file (e.g <code>settings.yaml, .secrets.yaml, etc</code>) by using <code>dynaconf_merge</code> token:</p> <pre><code class="yaml">default:
+</code></pre>
+<p>Or in an additional file (e.g <code>settings.yaml, .secrets.yaml, etc</code>) by using <code>dynaconf_merge</code> token:</p>
+<pre><code class="yaml">default:
   database:
     password: 1234
     dynaconf_merge: true
-</code></pre> <p>or</p> <pre><code class="yaml">default:
+</code></pre>
+<p>or</p>
+<pre><code class="yaml">default:
   database:
     dynaconf_merge:
       password: 1234
-</code></pre> <p>The <code>dynaconf_merge</code> token will mark that object to be merged with existing values (of course <code>dynaconf_merge</code> key will not be added to the final settings it is just a mark)</p> <p>The end result will be on <code>[development]</code> env:</p> <pre><code class="python">settings.DATABASE == {'host': 'server.com', 'user': 'dev_user', 'password': 1234}
-</code></pre> <p>The same can be applied to <strong>lists</strong>:</p> <p><code>settings.toml</code></p> <pre><code class="cfg">[default]
+</code></pre>
+<p>The <code>dynaconf_merge</code> token will mark that object to be merged with existing values (of course <code>dynaconf_merge</code> key will not be added to the final settings it is just a mark)</p>
+<p>The end result will be on <code>[development]</code> env:</p>
+<pre><code class="python">settings.DATABASE == {'host': 'server.com', 'user': 'dev_user', 'password': 1234}
+</code></pre>
+<p>The same can be applied to <strong>lists</strong>:</p>
+<p><code>settings.toml</code></p>
+<pre><code class="cfg">[default]
 plugins = ["core"]
 
 [development]
 plugins = ["debug_toolbar", "dynaconf_merge"]
-</code></pre> <p>or</p> <pre><code class="cfg">[default]
+</code></pre>
+<p>or</p>
+<pre><code class="cfg">[default]
 plugins = ["core"]
 
 [development.plugins]
 dynaconf_merge = ["debug_toolbar"]
-</code></pre> <p>And in environment variable</p> <p>using <code>@merge</code> token</p> <pre><code class="bash">export DYNACONF_PLUGINS='@merge ["ci_plugin"]'
-</code></pre> <p>or short version</p> <pre><code class="bash">export DYNACONF_PLUGINS='@merge ci_plugin'
-</code></pre> <p>comma separated values also supported:</p> <pre><code class="bash">export DYNACONF_PLUGINS='@merge ci_plugin,other_plugin'
-</code></pre> <p>or explicitly</p> <pre><code class="bash">export DYNACONF_PLUGINS='["ci_plugin", "dynaconf_merge"]'
-</code></pre> <p>Then the end result on <code>[development]</code> is:</p> <pre><code class="python">settings.PLUGINS == ["ci_plugin", "debug_toolbar", "core"]
-</code></pre> <p>If your value is a dictionary:</p> <pre><code class="bash">export DYNACONF_DATA="@merge {foo='bar'}"
+</code></pre>
+<p>And in environment variable</p>
+<p>using <code>@merge</code> token</p>
+<pre><code class="bash">export DYNACONF_PLUGINS='@merge ["ci_plugin"]'
+</code></pre>
+<p>or short version</p>
+<pre><code class="bash">export DYNACONF_PLUGINS='@merge ci_plugin'
+</code></pre>
+<p>comma separated values also supported:</p>
+<pre><code class="bash">export DYNACONF_PLUGINS='@merge ci_plugin,other_plugin'
+</code></pre>
+<p>or explicitly</p>
+<pre><code class="bash">export DYNACONF_PLUGINS='["ci_plugin", "dynaconf_merge"]'
+</code></pre>
+<p>Then the end result on <code>[development]</code> is:</p>
+<pre><code class="python">settings.PLUGINS == ["ci_plugin", "debug_toolbar", "core"]
+</code></pre>
+<p>If your value is a dictionary:</p>
+<pre><code class="bash">export DYNACONF_DATA="@merge {foo='bar'}"
 
 # or the short
 
 export DYNACONF_DATA="@merge foo=bar"
-</code></pre> <h3 id="avoiding-duplications-on-lists">Avoiding duplications on lists</h3> <p>The <code>dynaconf_merge_unique</code> is the token for when you want to avoid duplications in a list.</p> <p>Example:</p> <pre><code class="cfg">[default]
+</code></pre>
+<h3 id="avoiding-duplications-on-lists">Avoiding duplications on lists</h3>
+<p>The <code>dynaconf_merge_unique</code> is the token for when you want to avoid duplications in a list.</p>
+<p>Example:</p>
+<pre><code class="cfg">[default]
 scripts = ['install.sh', 'deploy.sh']
 
 [development]
 scripts = ['dev.sh', 'test.sh', 'deploy.sh', 'dynaconf_merge_unique']
-</code></pre> <pre><code class="bash">export DYNACONF_SCRIPTS='["deploy.sh", "run.sh", "dynaconf_merge_unique"]'
-</code></pre> <p>The end result for <code>[development]</code> will be:</p> <pre><code class="python">settings.SCRIPTS == ['install.sh', 'dev.sh', 'test.sh', 'deploy.sh', 'run.sh']
-</code></pre> <blockquote> <p>Note that <code>deploy.sh</code> is set 3 times but it is not repeated in the final settings.</p> </blockquote> <h3 id="known-caveats">Known caveats</h3> <p>The <strong>dynaconf_merge</strong> and <strong>@merge</strong> functionalities works only for the first level keys, it will not merge subdicts or nested lists (yet).</p> <p>For deeper nested objects use <a href="../environment_variables/#nested-keys-in-dictionaries-via-environment-variables">dunder merge</a>.</p> <h3 id="global-merge_1">Global merge</h3> <pre><code class="bash">export MERGE_ENABLED_FOR_DYNACONF=true
-</code></pre> <p>or put it in your <code>.env</code> file then Dynaconf will automatically merge all existing variables.</p> <blockquote> <p><strong>BEWARE</strong>: Using <code>MERGE_ENABLED_FOR_DYNACONF</code> can lead to unexpected results because you do not have granular control of what is being merged or overwritten so the recommendation is to use other options.</p> </blockquote> <h2 id="more-examples">More examples</h2> <p>Take a look at the <a href="https://github.com/rochacbruno/dynaconf/tree/master/example">example</a> folder to see some examples of use with different file formats and features.</p> </article> </div> </div> </main> <footer class="md-footer"> <div class="md-footer-nav"> <nav aria-label="Footer" class="md-footer-nav__inner md-grid"> <a class="md-footer-nav__link md-footer-nav__link--prev" href="../.." rel="prev" title="Home"> <div class="md-footer-nav__button md-icon"> <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"></path></svg> </div> <div class="md-footer-nav__title"> <div class="md-ellipsis"> <span class="md-footer-nav__direction"> Previous </span> Home </div> </div> </a> <a class="md-footer-nav__link md-footer-nav__link--next" href="../sensitive_secrets/" rel="next" title="Sensitive secrets"> <div class="md-footer-nav__title"> <div class="md-ellipsis"> <span class="md-footer-nav__direction"> Next </span> Sensitive secrets </div> </div> <div class="md-footer-nav__button md-icon"> <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"></path></svg> </div> </a> </nav> </div> <div class="md-footer-meta md-typeset"> <div class="md-footer-meta__inner md-grid"> <div class="md-footer-copyright"> Made with <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank"> Material for MkDocs </a> </div> <div class="md-footer-colors"> Theme colors: <div class="btn_colors btn_color_indigo" onclick="change_color('indigo')"></div> <div class="btn_colors btn_color_teal" onclick="change_color('teal')"></div> <div class="btn_colors btn_color_amber" onclick="change_color('amber')"></div> <div class="btn_colors btn_color_deep-purple" onclick="change_color('deep-purple')"></div> <div class="btn_colors btn_color_grey" onclick="change_color('grey')"></div> <div class="btn_colors btn_color_brown" onclick="change_color('brown')"></div> </div> <div class="md-footer-social"> <a class="md-footer-social__link" href="https://github.com/rochacbruno" rel="noopener" target="_blank" title="github.com"> <svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg> </a> <a class="md-footer-social__link" href="https://twitter.com/rochacbruno" rel="noopener" target="_blank" title="twitter.com"> <svg viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"></path></svg> </a> <a class="md-footer-social__link" href="https://www.linkedin.com/in/rochacbruno/" rel="noopener" target="_blank" title="www.linkedin.com"> <svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path></svg> </a> </div> </div> </div> </footer> </div> <script src="../../assets/javascripts/vendor.d7126665.min.js"></script> <script src="../../assets/javascripts/bundle.0f38e514.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script> <script>
+</code></pre>
+<pre><code class="bash">export DYNACONF_SCRIPTS='["deploy.sh", "run.sh", "dynaconf_merge_unique"]'
+</code></pre>
+<p>The end result for <code>[development]</code> will be:</p>
+<pre><code class="python">settings.SCRIPTS == ['install.sh', 'dev.sh', 'test.sh', 'deploy.sh', 'run.sh']
+</code></pre>
+<blockquote>
+<p>Note that <code>deploy.sh</code> is set 3 times but it is not repeated in the final settings.</p>
+</blockquote>
+<h3 id="known-caveats">Known caveats</h3>
+<p>The <strong>dynaconf_merge</strong> and <strong>@merge</strong> functionalities works only for the first level keys, it will not merge subdicts or nested lists (yet).</p>
+<p>For deeper nested objects use <a href="../environment_variables/#nested-keys-in-dictionaries-via-environment-variables">dunder merge</a>.</p>
+<h3 id="global-merge_1">Global merge</h3>
+<pre><code class="bash">export MERGE_ENABLED_FOR_DYNACONF=true
+</code></pre>
+<p>or put it in your <code>.env</code> file then Dynaconf will automatically merge all existing variables.</p>
+<blockquote>
+<p><strong>BEWARE</strong>: Using <code>MERGE_ENABLED_FOR_DYNACONF</code> can lead to unexpected results because you do not have granular control of what is being merged or overwritten so the recommendation is to use other options.</p>
+</blockquote>
+<h2 id="more-examples">More examples</h2>
+<p>Take a look at the <a href="https://github.com/rochacbruno/dynaconf/tree/master/example">example</a> folder to see some examples of use with different file formats and features.</p>
+</article>
+</div>
+</div>
+</main>
+<footer class="md-footer">
+<div class="md-footer-nav">
+<nav aria-label="Footer" class="md-footer-nav__inner md-grid">
+<a class="md-footer-nav__link md-footer-nav__link--prev" href="../../more/" rel="prev" title="More">
+<div class="md-footer-nav__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"></path></svg>
+</div>
+<div class="md-footer-nav__title">
+<div class="md-ellipsis">
+<span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                More
+              </div>
+</div>
+</a>
+<a class="md-footer-nav__link md-footer-nav__link--next" href="../sensitive_secrets/" rel="next" title="Sensitive secrets">
+<div class="md-footer-nav__title">
+<div class="md-ellipsis">
+<span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Sensitive secrets
+              </div>
+</div>
+<div class="md-footer-nav__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"></path></svg>
+</div>
+</a>
+</nav>
+</div>
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+          Material for MkDocs
+        </a>
+</div>
+<div class="md-footer-colors">
+        Theme colors:
+        <div class="btn_colors btn_color_purple-dark" onclick="change_color('purple-dark')"></div>
+<div class="btn_colors btn_color_teal" onclick="change_color('teal')"></div>
+<div class="btn_colors btn_color_amber" onclick="change_color('amber')"></div>
+<div class="btn_colors btn_color_deep-purple" onclick="change_color('deep-purple')"></div>
+<div class="btn_colors btn_color_grey" onclick="change_color('grey')"></div>
+<div class="btn_colors btn_color_brown" onclick="change_color('brown')"></div>
+</div>
+<div class="md-footer-social">
+<a class="md-footer-social__link" href="https://github.com/rochacbruno" rel="noopener" target="_blank" title="github.com">
+<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
+</a>
+<a class="md-footer-social__link" href="https://twitter.com/rochacbruno" rel="noopener" target="_blank" title="twitter.com">
+<svg viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"></path></svg>
+</a>
+<a class="md-footer-social__link" href="https://www.linkedin.com/in/rochacbruno/" rel="noopener" target="_blank" title="www.linkedin.com">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path></svg>
+</a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<script src="../../assets/javascripts/vendor.d7126665.min.js"></script>
+<script src="../../assets/javascripts/bundle.0f38e514.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+<script>
         app = initialize({
           base: "../..",
           features: [],
@@ -230,4 +1544,8 @@ scripts = ['dev.sh', 'test.sh', 'deploy.sh', 'dynaconf_merge_unique']
             worker: "../../assets/javascripts/worker/search.58d22e8e.min.js"
           }, typeof search !== "undefined" && search)
         })
-      </script> <script src="../../assets/javascripts/custom.js"></script> <script src="../../assets/javascripts/termynal.js"></script> </body> </html>
+      </script>
+<script src="../../assets/javascripts/custom.js"></script>
+<script src="../../assets/javascripts/termynal.js"></script>
+</body>
+</html>

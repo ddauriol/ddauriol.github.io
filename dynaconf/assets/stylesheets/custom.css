@@ -1,3 +1,90 @@
+[data-md-color-primary=purple-dark] {
+    --md-primary-fg-color: #4E259F;
+    --md-primary-fg-color--light: #A16BDE;
+    --md-primary-fg-color--dark: #40207E;
+    --md-primary-bg-color: var(--md-default-bg-color);
+    --md-primary-bg-color--light: var(--md-default-bg-color--light)
+}
+
+[data-md-color-accent=purple-dark] {
+    --md-accent-fg-color: #4E259F;
+    --md-accent-fg-color--transparent: #4E259F, 0.1;
+    --md-accent-bg-color: var(--md-default-bg-color);
+    --md-accent-bg-color--light: var(--md-default-bg-color--light)
+}
+
+.btn-primary-index {
+    color: #E3D5FF;
+    background-color: #A16BDE;
+    width: 250px;
+	height: 60px;
+	font-size: 25px;
+	border-radius: 10px;
+	position: relative;
+	left: 13vw;
+	top: 22vh;
+	padding: 15px;
+	text-align: center;
+}
+
+.btn-primary-index:hover {
+    color: #A16BDE;
+    background-color: #E3D5FF;
+    cursor: pointer;
+}
+
+.btn-secondy-index {
+	color: #A16BDE;
+	background-color: #E3D5FF;
+	width: 250px;
+	height: 60px;
+	font-size: 25px;
+	border-radius: 10px;
+	position: relative;
+	left: 16vw;
+	top: 22vh;
+	padding: 15px;
+	text-align: center;
+}
+
+.btn-secondy-index:hover {
+    color: #E3D5FF;
+    background-color: #A16BDE;
+    cursor: pointer;
+}
+
+.full-background {
+    background-image: url(/assets/images/background.png);
+    background-position: top;
+    background-size: cover;
+    width: 100%;
+}
+
+.md-text-title {
+    color: #E3D5FF;
+    position: relative;
+    top: 13vw;
+    left: 20vh;
+    font-size: 42px;
+}
+
+.md-text-info {
+    color: #E3D5FF;
+    position: relative;
+    top: 20vh;
+    left: 20vh;
+    font-size: 24px;
+    width: 35%;
+}
+
+.md-row-cards {
+    position: relative;
+    display: inline-block;
+    width: 75%;
+    height: 25%;
+}
+
+
 a.external-link::after {
     /* \00A0 is a non-breaking space
         to make the mark be on the same line as the link
@@ -21,7 +108,7 @@ a.internal-link::after {
     align-content: flex-start;
     margin: auto .6rem;
     padding: .4rem 0;
-    color:var(--md-default-bg-color--light)
+    color: var(--md-default-bg-color--light)
 }
 
 .btn_colors {
@@ -33,8 +120,8 @@ a.internal-link::after {
     padding: 1px;
 }
 
-.btn_color_indigo {
-    background-color: hsla(231deg, 48%, 48%, 1);
+.btn_color_purple-dark {
+    background-color: #4E259F;
 }
 
 .btn_color_teal {

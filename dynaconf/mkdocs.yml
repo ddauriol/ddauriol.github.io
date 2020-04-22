@@ -1,0 +1,115 @@
+site_name: DYNACONF
+site_url: 'https://github.com/rochacbruno/dynaconf'
+site_author: 'https://github.com/rochacbruno/dynaconf'
+site_description: DYNACONF a layered configuration system for Python applications
+repo_name: rochacbruno/dynaconf
+repo_url: 'https://github.com/rochacbruno/dynaconf'
+edit_uri: ''
+docs_dir: ./md
+
+theme:
+  name: material
+  custom_dir: material
+  palette:
+    primary: purple-dark
+    accent: purple-dark
+  feature:
+    - tabs
+  static_templates:
+    - 404.html
+  include_search_page: false
+  search_index_only: true
+  language: en
+  font:
+    text: Roboto
+    code: Roboto Mono
+  logo: assets/images/logo_small.svg
+  logo_title: assets/images/logo_white.svg
+  favicon: assets/images/favicon.png
+  icon_config: material/settings
+
+plugins:
+  - search
+  - markdownextradata: {}
+  - mkdocstrings:
+      default_handler: python
+      watch:
+        - dynaconf
+
+extra_css:
+  - assets/stylesheets/custom.css
+  - assets/stylesheets/termynal.css
+
+extra_javascript:
+  - assets/javascripts/custom.js
+  - assets/javascripts/termynal.js
+
+#Config
+extra:
+  dynaconf:
+    release: v3.0.0rc1
+    DYNACONF_DATABASE_PATH: '@jinja {{env.HOME}}/.config/databases/{{this.DB_NAME}}'
+    DB_PATH: '@jinja {{env.HOME}}/{{this.current_env | lower}}/{{env["PROGRAM_NAME"]}}/{{this.DB_NAME}}'
+    VALUE: 'VALUE = "@jinja {{this.FOO | abspath}}"'
+    FOR: '{% for, if, while %}'
+  social:
+    - icon: fontawesome/brands/github
+      link: 'https://github.com/rochacbruno'
+    - icon: fontawesome/brands/twitter
+      link: 'https://twitter.com/rochacbruno'
+    - icon: fontawesome/brands/linkedin
+      link: 'https://www.linkedin.com/in/rochacbruno/'
+
+#Nav
+nav:
+  - Home: index.html
+  - More: more.md
+  - Getting started: guides/usage.md
+  - Usage:
+      - Sensitive secrets: guides/sensitive_secrets.md
+      - Environment variables: guides/environment_variables.md
+      - Accessing parameters: guides/accessing_values.md
+      - The dynaconf CLI: guides/cli.md
+      - External storages: guides/external_storages.md
+      - Configuring Dynacon: guides/configuration.md
+      - Advanced Usage: guides/advanced_usage.md
+      - Feature flag system: guides/feature_flag.md
+      - Validation: guides/validation.md
+  - Extension:
+      - Flask: guides/flask.md
+      - Django: guides/django.md
+  - Testing: guides/testing.md
+  - Extending: guides/extend.md
+  - Examples: guides/examples.md
+  - About:
+      - How to contribute: guides/contribute.md
+      - Credits: guides/credits.md
+      - Alternatives: guides/alternatives.md
+      - Module reference:
+        - Guide: modules/modules/index.html
+        - Submodules:
+            - Base: modules/base/index.html
+            - CLI: modules/cli/index.html
+            - Default Settings: modules/default_settings/index.html
+            - Constants: modules/constants/index.html
+            - Test Settings: modules/test_settings/index.html
+            - Validator: modules/validator/index.html
+            - Validator Conditions: modules/validator_conditions/index.html
+        - Subpackages:
+            - Contrib Package:
+                - Flask dynaconf: modules/contrib/flask_dynaconf/index.html
+            - Loaders:
+                - Base: modules/loaders/base/index.html
+                - env: modules/loaders/env_loader/index.html
+                - ini: modules/loaders/ini_loader/index.html
+                - json: modules/loaders/json_loader/index.html
+                - py: modules/loaders/py_loader/index.html
+                - redis: modules/loaders/redis_loader/index.html
+                - toml: modules/loaders/toml_loader/index.html
+                - vault: modules/loaders/vault_loader/index.html
+                - yaml: modules/loaders/yaml_loader/index.html
+            - Utils:
+                - Boxing: modules/utils/boxing/index.html
+                - Parse Config: modules/utils/parse_conf/index.html
+                - Files: modules/utils/files/index.html
+      - License: license.md
