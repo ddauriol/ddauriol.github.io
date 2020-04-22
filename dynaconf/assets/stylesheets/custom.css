@@ -1,4 +1,4 @@
-[data-md-color-primary=purple-dark] {
+﻿[data-md-color-primary=purple-dark] {
     --md-primary-fg-color: #4E259F;
     --md-primary-fg-color--light: #A16BDE;
     --md-primary-fg-color--dark: #40207E;
@@ -54,7 +54,7 @@
 }
 
 .full-background {
-    background-image: url(/assets/images/background.png);
+    background-image: url(/dynaconf/assets/images/background.png);
     background-position: top;
     background-size: cover;
     width: 100%;
