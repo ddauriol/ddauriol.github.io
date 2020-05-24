@@ -105,8 +105,8 @@
             <div class="control has-icons-left">
               <div class="select">
                 <select ref="selectShort" v-on:change="changeShort" >
-                  <option value="name" selected>Name</option>
-                  <option value="stars">Stars</option>
+                  <option value="name">Name</option>
+                  <option value="stars" selected>Stars</option>
                   <option value="forks">Forks</option>
                 </select>
               </div>
@@ -139,17 +139,31 @@
                         {{ extension.description | truncate }}
                       </div>
                       <div class="columns">
-                        <div class="column">
+                        <div class="column is-5">
                           <span class="icon">
                             <i class="fas fa-star"></i>
                           </span>
                           {{ extension.stargazers_count }}
                         </div>
-                        <div class="column">
+                        <div class="column is-7">
+                          <span class="icon">
+                            <i class="fas fa-upload"></i>
+                          </span>
+                          {{ extension.created_at }}
+                        </div>
+                      </div>
+                      <div class="columns">
+                        <div class="column is-5">
                           <span class="icon">
                             <i class="fas fa-code-branch"></i>
                           </span>
                           {{ extension.forks_count}}
+                        </div>
+                        <div class="column is-7">
+                          <span class="icon">
+                            <i class="fas fa-pencil-alt"></i>
+                          </span>
+                          {{ extension.updated_at}}
                         </div>
                       </div>
                     </div>

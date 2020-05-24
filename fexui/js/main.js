@@ -7,15 +7,21 @@ new Vue({
   data: {
     result: {},
     term: "",
-    shotBy: "name",
+    shotBy: "stars",
   },
   async mounted() {
     const resp = await instance.get("extension/");
     this.result = resp.data;
+    this.adjustDate();
+    this.changeShort();
   },
   filters: {
     truncate: function (text) {
-      if (text.length > 150) return text.substring(0, 150) + " [...]";
+      if (text != null) {
+        if (text.length > 100) return text.substring(0, 100) + " [...]";
+      } else {
+        text = "";
+      }
       return text;
     },
   },
@@ -23,6 +29,8 @@ new Vue({
     async search() {
       const resp = await instance.get(`extension/?query=${this.term}`);
       this.result = resp.data;
+      this.adjustDate();
+      this.changeShort();
     },
     async paginate(paginate_to) {
       const resp = await instance.get("extension/", {
@@ -32,7 +40,10 @@ new Vue({
           query: this.term,
         },
       });
+      console.log(resp.data);
       this.result = resp.data;
+      this.adjustDate();
+      this.changeShort();
     },
     changeShort() {
       this.shotBy = this.$refs.selectShort.value;
@@ -60,6 +71,23 @@ new Vue({
     shortByForks() {
       this.result.items = this.result.items.sort(function (a, b) {
         return b.forks_count - a.forks_count;
+      });
+    },
+    adjustDate() {
+      Object.entries(this.result.items).forEach((value) => {
+        let created_at = new Date(value[1].created_at.replace("T", " "))
+          .toDateString()
+          .slice(4, 15)
+          .replace(" ", "-")
+          .replace(" ", "-");
+        value[1].created_at = created_at;
+
+        let updated_at = new Date(value[1].updated_at.replace("T", " "))
+          .toDateString()
+          .slice(4, 15)
+          .replace(" ", "-")
+          .replace(" ", "-");
+        value[1].updated_at = updated_at;
       });
     },
   },
