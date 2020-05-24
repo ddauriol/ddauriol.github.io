@@ -7,6 +7,7 @@ new Vue({
   data: {
     result: {},
     term: "",
+    shotBy: "name",
   },
   async mounted() {
     const resp = await instance.get("extension/");
@@ -14,7 +15,7 @@ new Vue({
   },
   filters: {
     truncate: function (text) {
-      if (text.length > 80) return text.substring(0, 80) + " [...]";
+      if (text.length > 150) return text.substring(0, 150) + " [...]";
       return text;
     },
   },
@@ -32,6 +33,34 @@ new Vue({
         },
       });
       this.result = resp.data;
+    },
+    changeShort() {
+      this.shotBy = this.$refs.selectShort.value;
+      switch (this.shotBy) {
+        case "stars":
+          this.shortByStars();
+          break;
+        case "forks":
+          this.shortByForks();
+          break;
+        default:
+          this.shortByName();
+      }
+    },
+    shortByName() {
+      this.result.items = this.result.items.sort((a, b) =>
+        a.name.localeCompare(b.name)
+      );
+    },
+    shortByStars() {
+      this.result.items = this.result.items.sort(function (a, b) {
+        return b.stargazers_count - a.stargazers_count;
+      });
+    },
+    shortByForks() {
+      this.result.items = this.result.items.sort(function (a, b) {
+        return b.forks_count - a.forks_count;
+      });
     },
   },
 });

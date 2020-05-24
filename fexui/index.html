@@ -102,6 +102,18 @@
             <div class="column is-expanded has-text-info">
               <p class="is-size-4">Total Results: {{result.page.total!=0 ? result.page.total : result.items.length}}</p>
             </div>
+            <div class="control has-icons-left">
+              <div class="select">
+                <select ref="selectShort" v-on:change="changeShort" >
+                  <option value="name" selected>Name</option>
+                  <option value="stars">Stars</option>
+                  <option value="forks">Forks</option>
+                </select>
+              </div>
+              <span class="icon is-left">
+                <i class="fas fa-sort-amount-down"></i>
+              </span>
+            </div>
           </div>
         </div>
       </section>
@@ -118,20 +130,34 @@
                 >
                   <div class="card">
                     <header class="card-header">
-                      <p class="card-header-title">
+                      <p class="card-header-title is-uppercase">
                         {{ extension.name }}
                       </p>
                     </header>
                     <div class="card-content">
-                      <div class="content">
+                      <div class="column description">
                         {{ extension.description | truncate }}
+                      </div>
+                      <div class="columns">
+                        <div class="column">
+                          <span class="icon">
+                            <i class="fas fa-star"></i>
+                          </span>
+                          {{ extension.stargazers_count }}
+                        </div>
+                        <div class="column">
+                          <span class="icon">
+                            <i class="fas fa-code-branch"></i>
+                          </span>
+                          {{ extension.forks_count}}
+                        </div>
                       </div>
                     </div>
                     <footer class="card-footer">
                       <a
                         :href="extension.html_url"
                         target="_blank"
-                        class="card-footer-item has-icons-left"
+                        class="card-footer-item has-icons-left left"
                       >
                         <span class="icon">
                           <i class="fab fa-github"></i>
@@ -141,7 +167,7 @@
                       <a
                         :href="`https://stackoverflow.com/search?q=flask+${extension.name}`"
                         target="_blank"
-                        class="card-footer-item has-icons-left"
+                        class="card-footer-item has-icons-left right"
                       >
                         <span class="icon">
                           <i class="fab fa-stack-overflow"></i>
