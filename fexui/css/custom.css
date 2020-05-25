@@ -27,7 +27,11 @@
 }
 
 .card-content {
-  height: 130px;
+  height: 210px;
+}
+
+.description {
+  height: 125px;
 }
 
 .level-item span.meta {
@@ -66,6 +70,22 @@ section.top-status {
   color: white;
   background-color: #1d9cc9;
   border-color: #ddd;
+}
+
+.card-footer > .left:hover {
+  color: white;
+  background-color: #1d9cc9;
+  border-end-start-radius: 5px;
+}
+
+.card-footer > .right:hover {
+  color: white;
+  background-color: #1d9cc9;
+  border-end-end-radius: 5px;
+}
+
+.card-content > .columns > .column {
+  padding-top: 0px !important;
 }
 
 .log-flask-extension {
