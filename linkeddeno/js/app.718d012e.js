@@ -87,13 +87,13 @@
     e.exports = n("56d7");
   },
   "131e": function(e, t, n) {
-    e.exports = n.p + "img/Q5.5a7d8f98.png";
+    e.exports = n.p + "./img/Q5.5a7d8f98.png";
   },
   3850: function(e, t, n) {
-    e.exports = n.p + "img/Q0.c9fee701.png";
+    e.exports = n.p + "./img/Q0.c9fee701.png";
   },
   4170: function(e, t, n) {
-    e.exports = n.p + "img/Q3.3395d9bf.png";
+    e.exports = n.p + "./img/Q3.3395d9bf.png";
   },
   "56d7": function(e, t, n) {
     "use strict";
@@ -461,13 +461,13 @@
       }).$mount("#app");
   },
   "626c": function(e, t, n) {
-    e.exports = n.p + "img/Q2.2bf2549d.png";
+    e.exports = n.p + "./img/Q2.2bf2549d.png";
   },
   b1b5: function(e, t, n) {
-    e.exports = n.p + "img/Q1.fb5855bb.png";
+    e.exports = n.p + "./img/Q1.fb5855bb.png";
   },
   dc61: function(e, t, n) {
-    e.exports = n.p + "img/Q4.2850fba3.png";
+    e.exports = n.p + "./img/Q4.2850fba3.png";
   },
   eb69: function(e, t, n) {},
   fc34: function(e, t, n) {
