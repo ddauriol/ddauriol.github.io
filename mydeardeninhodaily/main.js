@@ -1,3 +1,7 @@
+const gifDeninho = document.getElementById("gifDeninho");
+const linkURL = document.getElementById("linkURL");
+const btnNewDeninho = document.getElementById("btnNewDeninho");
+
 async function getGif() {
   const searchs = ["sock%20puppet", "sock%20puppets", "socks"];
   const search = searchs[Math.floor(Math.random() * searchs.length + 0)];
@@ -8,7 +12,8 @@ async function getGif() {
   const LIMIT = 25;
   const RATING = "pg";
 
-  document.getElementById("btnNewDeninho").disabled = true;
+  btnNewDeninho.disabled = true;
+  btnNewDeninho.textContent = "Loading";
 
   await axios
     .get(
@@ -30,9 +35,11 @@ async function getGif() {
     .catch(function (error) {
       console.log(error);
     });
-  document.getElementById("gifDeninho").src = this.gifSrc;
-  document.getElementById("linkURL").value = this.gifSrc;
-  document.getElementById("btnNewDeninho").disabled = false;
+
+  await loadImage(this.gifSrc, gifDeninho);
+  linkURL.value = this.gifSrc;
+  btnNewDeninho.disabled = false;
+  btnNewDeninho.textContent = "Get Deninho";
 }
 
 function CopyTextToClipboard() {
@@ -40,4 +47,12 @@ function CopyTextToClipboard() {
   copyText.focus();
   copyText.select();
   document.execCommand("copy");
+}
+
+async function loadImage(url, elem) {
+  return new Promise((resolve, reject) => {
+    elem.onload = () => resolve(elem);
+    elem.onerror = reject;
+    elem.src = url;
+  });
 }
