@@ -1584,6 +1584,15 @@ header .logo a {
   }
 }
 
+#publications {
+  background: #ffffff;
+  padding-top: 12rem;
+  padding-bottom: 15rem;
+}
+#publications .section-intro {
+  margin-bottom: 3rem;
+}
+
 /** 
  * ===================================================================
  * 11. about - (_layout.scss)
